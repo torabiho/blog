@@ -2,8 +2,8 @@
 
 Coming soon
 
-### Running loclly
-npm run dev
+### Running loclly (dev branch)
+npm run start
 
 ### publishing to subdomain
 npm run deploy
