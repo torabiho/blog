@@ -2,11 +2,12 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://blog.hosseintorabi.com/",
+  "homepage": "https://blog.hosseintorabi.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
     "i18next": "^20.3.5",
     "i18next-browser-languagedetector": "^6.1.2",
     "react": "^17.0.2",
@@ -21,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build && cp CNAME ./build && cp build/index.html build/404.html",
+    "predeploy": "npm run build && cp CNAME ./build",
     "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {

@@ -4,7 +4,11 @@ import { initReactI18next } from 'react-i18next';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage'],
-  lookupQuerystring: 'lng'
+  lookupQuerystring: 'lng',
+  // next-i18next by default searches for the "next-i18next" cookie on server requests
+  lookupCookie: "next-i18next",
+  lookupLocalStorage: "i18nextLng",
+  caches: ["cookie", "localStorage"]
 }
 
 i18n
@@ -23,6 +27,12 @@ i18n
     fa: {
       translations: require('./locales/fa/translations.json')
     }
+  },
+  react: {
+    // trigger a rerender when language is changed
+    bindI18n: "languageChanged",
+    // we're NOT using suspsense to detect when the translations have loaded
+    useSuspense: false
   },
   ns: ['translations'],
   defaultNS: 'translations'
