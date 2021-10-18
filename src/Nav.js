@@ -10,7 +10,7 @@ const menuItems = [
   { title: "page5", link: "/page5" },
 ];
 
-const Nav = (props) => {
+const Nav = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   return (

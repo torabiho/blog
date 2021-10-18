@@ -1,5 +1,12 @@
-.App {
-  text-align: center;
+.app {
+  background: linear-gradient(
+      0deg,
+      rgba(232, 223, 193, 0.3),
+      rgba(232, 223, 193, 0.3)
+    ),
+    url("./main-background.jpeg");
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .App-logo {
