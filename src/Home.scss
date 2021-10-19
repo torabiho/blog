@@ -1,0 +1,29 @@
+@font-face {
+  font-family: tahrirFont;
+  src: url("./Far_MashinTahrir.ttf");
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url("./Far_MashinTahrir.ttf");
+  font-weight: bold;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: url("./images/header-bg.png");
+  background-position: 50% 50%;
+  background-repeat: repeat-x;
+  background-size: cover;
+  filter: saturate(0.5);
+
+  .header {
+    color: darkred;
+    .header__text {
+      font-family: tahrirFont;
+      font-size: 48px;
+    }
+  }
+}
