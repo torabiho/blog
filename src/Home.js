@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Trans, withTranslation } from "react-i18next";
 import stamp from "./images/stamp.png";
@@ -6,8 +6,22 @@ import "./Home.scss";
 
 const Home = ({ t }) => {
   const [username, setUsername] = useState("default user");
-  const [input, setInput] = useState("");
-  const handleInput = (e) => setInput(e.target.value);
+  const usernameInput = useRef(null);
+
+  const handleClickEvent = () => {
+    const currentUsername = usernameInput.current;
+    setUsername(currentUsername.value);
+  };
+
+  const loremIpsum = `Lorem Ipsum is simply dummy text of the printing and typesetting
+  industry. Lorem Ipsum has been the industry's standard dummy text
+  ever since the 1500s, when an unknown printer took a galley of type
+  and scrambled it to make a type specimen book. It has survived not
+  only five centuries, but also the leap into electronic typesetting,
+  remaining essentially unchanged. It was popularised in the 1960s
+  with the release of Letraset sheets containing Lorem Ipsum passages,
+  and more recently with desktop publishing software like Aldus
+  PageMaker including versions of Lorem Ipsum.*`;
 
   return (
     <>
@@ -23,8 +37,8 @@ const Home = ({ t }) => {
 
         <div>
           <label>{t("change-username")}</label>
-          <input type="text" onChange={handleInput} />
-          <button onClick={() => setUsername(input)}>{t("submit")}</button>
+          <input type="text" ref={usernameInput} />
+          <button onClick={handleClickEvent}>{t("submit")}</button>
         </div>
 
         <p>
@@ -34,17 +48,7 @@ const Home = ({ t }) => {
           </Trans>
         </p>
         {Array(16)
-          .join(
-            `Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.*`
-          )
+          .join(loremIpsum)
           .split("*")
           .map((element, index) => (
             <p key={index}>{element}</p>
