@@ -1,0 +1,56 @@
+/* TOOLBAR
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar .search-wrapper {
+  position: relative;
+}
+
+.toolbar input[type="search"] {
+  font-size: 1.1rem;
+  border: none;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;
+}
+
+.toolbar ::placeholder {
+  color: var(--gray);
+}
+
+.toolbar .counter {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 5px);
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.view-options {
+  display: flex;
+  align-items: center;
+}
+
+.view-options li:not(:last-child) {
+  margin-right: 1.2rem;
+}
+
+.view-options button {
+  padding: 2px;
+  border: 3px solid transparent;
+}
+
+.view-options .active button {
+  border-color: var(--darkgreen);
+}
+
+/* MQ
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 900px) {
+  .toolbar input[type="range"] {
+    display: none;
+  }
+}

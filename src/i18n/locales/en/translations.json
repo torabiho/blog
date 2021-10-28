@@ -1,4 +1,7 @@
 {
+    "Gallery-toolbar-search-placeholder": "Search for posts",
+    "header-main-title": "Colourful code writer",
+    "header-sub-title": "...and expert in all other stuff",
     "home": "Home",
     "page2": "Page 2",
     "welcome": "Welcome, {{username}}",

@@ -16,10 +16,6 @@ code {
     monospace;
 }
 
-.body {
-  padding: 50px 100px;
-}
-
 .body input,
 .body button {
   margin-left: 10px;

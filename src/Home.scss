@@ -10,20 +10,33 @@
 }
 
 .header__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: url("./images/header-bg.png");
-  background-position: 50% 50%;
-  background-repeat: repeat-x;
-  background-size: cover;
-  filter: saturate(0.5);
+  .header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 40px;
+    filter: saturate(0.5);
 
-  .header {
-    color: darkred;
-    .header__text {
-      font-family: tahrirFont;
-      font-size: 48px;
+    @media screen and (min-width: 900px) {
+      flex-direction: row;
+      margin-bottom: 80px;
     }
+
+    .header {
+      color: #375195;
+      text-align: center;
+      @media screen and (min-width: 900px) {
+        text-align: end;
+      }
+      .header__text {
+        font-family: tahrirFont;
+        font-size: 48px;
+      }
+    }
+  }
+
+  .header__separator {
+    margin: auto;
   }
 }

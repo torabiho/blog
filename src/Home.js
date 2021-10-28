@@ -1,59 +1,64 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trans, withTranslation } from "react-i18next";
+import axios from "axios";
 import stamp from "./images/stamp.png";
+import headerBg from "./images/headerBg.png";
+import Gallery from "./Gallery";
 import "./Home.scss";
 
-const Home = ({ t }) => {
+const Home = ({ t, i18n }) => {
   const [username, setUsername] = useState("default user");
-  const usernameInput = useRef(null);
+  // const usernameInput = useRef(null);
 
-  const handleClickEvent = () => {
-    const currentUsername = usernameInput.current;
-    setUsername(currentUsername.value);
-  };
+  // const handleClickEvent = () => {
+  //   const currentUsername = usernameInput.current;
+  //   setUsername(currentUsername.value);
+  // };
 
-  const loremIpsum = `Lorem Ipsum is simply dummy text of the printing and typesetting
-  industry. Lorem Ipsum has been the industry's standard dummy text
-  ever since the 1500s, when an unknown printer took a galley of type
-  and scrambled it to make a type specimen book. It has survived not
-  only five centuries, but also the leap into electronic typesetting,
-  remaining essentially unchanged. It was popularised in the 1960s
-  with the release of Letraset sheets containing Lorem Ipsum passages,
-  and more recently with desktop publishing software like Aldus
-  PageMaker including versions of Lorem Ipsum.*`;
+  const [posts, setPosts] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(`${process.env.REACT_APP_API_URL}/api/posts`, {
+        headers: {
+          "Accept-Language": i18n.language,
+        },
+      });
+
+      setPosts(result.data);
+    };
+
+    fetchData();
+  }, [i18n.language]);
 
   return (
     <>
-      <div className="header__wrapper">
-        <img alt="stamp" src={stamp} />
-        <div className="header">
-          <p className="header__text">نویسنده‌ی کدهای رنگی</p>
-          <p className="header__text">وی، در سایر امور نیز نظراتی داشت</p>
+      <header className="header__wrapper">
+        <div className="header__content">
+          <div className="header">
+            <p className="header__text">{t("header-main-title")}</p>
+            <p className="header__text">{t("header-sub-title")}</p>
+          </div>
+          <img alt="stamp" src={stamp} width="360px" />
         </div>
-      </div>
-      <div className="body">
-        <p>{t("welcome", { username: username })}</p>
+        <img alt="stamp" src={headerBg} className="header__separator" />
+      </header>
+      <Gallery data={posts} />
+      {/* <p>{t("welcome", { username: username })}</p>
 
         <div>
           <label>{t("change-username")}</label>
           <input type="text" ref={usernameInput} />
           <button onClick={handleClickEvent}>{t("submit")}</button>
-        </div>
+        </div> */}
 
-        <p>
+      {/* <p>
           <Trans i18nKey="go-to-page2">
             <Link to="/page2"></Link>
             {{ username }}
           </Trans>
-        </p>
-        {Array(16)
-          .join(loremIpsum)
-          .split("*")
-          .map((element, index) => (
-            <p key={index}>{element}</p>
-          ))}
-      </div>
+        </p> */}
     </>
   );
 };

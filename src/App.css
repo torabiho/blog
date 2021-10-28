@@ -1,8 +1,8 @@
 .app {
   background: linear-gradient(
       0deg,
-      rgba(232, 223, 193, 0.3),
-      rgba(232, 223, 193, 0.3)
+      rgba(224, 217, 204, 0.3),
+      rgba(224, 217, 204, 0.3)
     ),
     url("./main-background.jpeg");
   background-size: cover;
