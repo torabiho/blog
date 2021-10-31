@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './i18n/config';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./i18n/config";
+import "./index.scss";
 
 ReactDOM.render(
   <HashRouter>
     <App />
   </HashRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

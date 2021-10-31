@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -13,8 +13,18 @@ const menuItems = [
 const Nav = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const [checked, setChecked] = useState(false);
   return (
     <nav className="menu-container">
+      <input
+        id="click-reciever"
+        type="checkbox"
+        checked={checked}
+        onChange={() => setChecked((prevState) => !prevState)}
+      />
+      <span className="hamburger"></span>
+      <span className="hamburger"></span>
+      <span className="hamburger"></span>
       <ul className="menu__list">
         {menuItems.map((item, index) => (
           <li
@@ -23,7 +33,11 @@ const Nav = () => {
               pathname === item.link && "menu__item--current"
             }`}
           >
-            <Link to={item.link} className="menu__link">
+            <Link
+              to={item.link}
+              className="menu__link"
+              onClick={() => setChecked(false)}
+            >
               {t(item.title)}
             </Link>
           </li>

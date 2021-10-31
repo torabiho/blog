@@ -98,10 +98,6 @@ body {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
-
-  &:lang(fa) {
-    direction: rtl;
-  }
 }
 
 .grid-view figcaption {
