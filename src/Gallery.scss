@@ -103,8 +103,8 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
   li {
     text-align: center;
-    max-width: 456px;
     @include md {
+      max-width: 456px;
       text-align: unset;
     }
   }
