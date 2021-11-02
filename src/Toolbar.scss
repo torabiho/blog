@@ -1,5 +1,6 @@
-/* TOOLBAR
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import "./constants/mixins";
+@import "./constants/spaces";
+
 .toolbar {
   display: flex;
   justify-content: space-between;
@@ -14,7 +15,15 @@
   font-size: 1.1rem;
   border: none;
   border-bottom: 1px solid;
-  padding-bottom: 3px;
+  padding: $xxSmall;
+}
+
+.toolbar input[type="range"] {
+  display: none;
+
+  @include lg {
+    display: unset;
+  }
 }
 
 .toolbar ::placeholder {
@@ -39,18 +48,10 @@
 }
 
 .view-options button {
-  padding: 2px;
+  padding: $tiny;
   border: 3px solid transparent;
 }
 
 .view-options .active button {
   border-color: var(--darkgreen);
-}
-
-/* MQ
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media screen and (max-width: 900px) {
-  .toolbar input[type="range"] {
-    display: none;
-  }
 }

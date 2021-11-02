@@ -1,7 +1,7 @@
 import React from "react";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
-import "./Toolbar.css";
+import "./Toolbar.scss";
 
 const active = "active";
 const listView = "listView";
@@ -10,7 +10,7 @@ const dNone = "d-none";
 const Toolbar = (props) => {
   const { t } = useTranslation();
   const [rangeValue, setRangeValue] = React.useState("280");
-  const isDesktop = useMediaQuery("(min-width: 900px)");
+  const isDesktop = useMediaQuery("(min-width: 992px)");
   React.useEffect(() => {
     if (isDesktop) {
       document.documentElement.style.setProperty(

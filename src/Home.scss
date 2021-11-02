@@ -1,13 +1,6 @@
-@font-face {
-  font-family: tahrirFont;
-  src: url("./Far_MashinTahrir.ttf");
-}
-
-@font-face {
-  font-family: myFirstFont;
-  src: url("./Far_MashinTahrir.ttf");
-  font-weight: bold;
-}
+@import "./constants/mixins";
+@import "./constants/spaces";
+@import "./constants/fonts";
 
 .header__wrapper {
   .header__content {
@@ -16,10 +9,10 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    padding: 40px;
+    padding: $huge;
     filter: saturate(0.5);
 
-    @media screen and (min-width: 900px) {
+    @include lg {
       flex-direction: row;
       margin-bottom: 80px;
     }
@@ -27,7 +20,8 @@
     .header {
       color: #375195;
       text-align: center;
-      @media screen and (min-width: 900px) {
+      margin-bottom: $small;
+      @include lg {
         text-align: end;
       }
       .header__text {

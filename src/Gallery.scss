@@ -1,3 +1,6 @@
+@import "./constants/mixins";
+@import "./constants/spaces";
+
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -47,10 +50,10 @@ body {
 
 .container {
   max-width: 1030px;
-  margin: 40px auto;
-  padding: 0 40px;
+  margin: $huge auto;
+  padding: 0 $huge;
 
-  @media screen and (min-width: 1200px) {
+  @include xl {
     padding: 0;
   }
 }
@@ -98,10 +101,17 @@ body {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
+  li {
+    text-align: center;
+    max-width: 456px;
+    @include md {
+      text-align: unset;
+    }
+  }
 }
 
 .grid-view figcaption {
-  padding: 12px;
+  padding: $small;
 }
 
 /* LIST VIEW
@@ -115,12 +125,4 @@ body {
   grid-gap: 1.5rem;
   grid-template-columns: 150px 1fr;
   align-items: center;
-}
-
-/* MQ
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media screen and (max-width: 700px) {
-  .grid-view li {
-    text-align: center;
-  }
 }

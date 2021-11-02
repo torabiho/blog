@@ -1,111 +1,150 @@
-@media screen and (max-width: 900px) {
-  .menu-container {
-    padding: 40px 40px 0 40px;
-    #click-reciever {
+@import "./constants/mixins";
+@import "./constants/spaces";
+@import "./constants/fonts";
+
+.menu-container {
+  padding: $huge $huge 0 $huge;
+  #click-reciever {
+    display: block;
+    width: 45px;
+    height: 32px;
+    position: absolute;
+    top: 35px;
+    left: 34px;
+
+    &:lang(fa) {
+      left: unset;
+      right: 34px;
+    }
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 3; /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+  }
+
+  .hamburger {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 2;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  .hamburger:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  .hamburger:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  // Transform all the slices of hamburger into a crossmark.
+
+  #click-reciever:checked ~ .hamburger {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
+
+  #click-reciever:checked ~ .hamburger:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  #click-reciever:checked ~ .hamburger:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  .menu__list {
+    position: absolute;
+    width: 300px;
+    margin-top: -100px;
+    padding: $xGiant 0 $large 0;
+    z-index: 1;
+
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    &:lang(en) {
+      left: -300px;
+    }
+
+    &:lang(fa) {
+      right: -300px;
+    }
+
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+    .menu__item {
       display: block;
-      width: 45px;
-      height: 32px;
-      position: absolute;
-      top: 35px;
-      left: 34px;
-
-      &:lang(fa) {
-        left: unset;
-        right: 34px;
-      }
-
-      cursor: pointer;
-
-      opacity: 0; /* hide this */
-      z-index: 3; /* and place it over the hamburger */
-
-      -webkit-touch-callout: none;
-    }
-
-    .hamburger {
-      display: block;
-      width: 33px;
-      height: 4px;
-      margin-bottom: 5px;
-      position: relative;
-      background: #cdcdcd;
-      border-radius: 3px;
-      z-index: 2;
-
-      transform-origin: 4px 0px;
-
-      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-        background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-        opacity 0.55s ease;
-    }
-
-    .hamburger:first-child {
-      transform-origin: 0% 0%;
-    }
-
-    .hamburger:nth-last-child(2) {
-      transform-origin: 0% 100%;
-    }
-
-    // Transform all the slices of hamburger into a crossmark.
-
-    #click-reciever:checked ~ .hamburger {
-      opacity: 1;
-      transform: rotate(45deg) translate(-2px, -1px);
-      background: #232323;
-    }
-
-    #click-reciever:checked ~ .hamburger:nth-last-child(3) {
-      opacity: 0;
-      transform: rotate(0deg) scale(0.2, 0.2);
-    }
-
-    #click-reciever:checked ~ .hamburger:nth-last-child(2) {
-      transform: rotate(-45deg) translate(0, -1px);
-    }
-
-    .menu__list {
-      position: absolute;
-      width: 300px;
-      margin-top: -100px;
-      padding: 100px 0 20px 0;
-      z-index: 1;
-
-      background: #ededed;
-      list-style-type: none;
-      -webkit-font-smoothing: antialiased;
-      /* to stop flickering of text in safari */
-
-      &:lang(en) {
-        left: -300px;
-      }
-
-      &:lang(fa) {
-        right: -300px;
-      }
-
-      transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    }
-
-    .menu__list li {
       padding: 0;
+      &:lang(fa) {
+        font-family: tahrirFont;
+        font-size: 26px;
+      }
+      .menu__link {
+        font-weight: bold;
+        display: block;
+        padding: $small;
+        cursor: pointer;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+        position: relative;
+        display: block;
+        text-align: center;
+        color: #929292;
+        transition: color 0.4s;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          outline: none;
+          color: #d94f5c;
+        }
+      }
     }
 
-    #click-reciever:checked ~ ul {
-      &:lang(en) {
-        left: 0;
+    .menu__item--current {
+      .menu__link {
+        color: #d94f5c;
       }
+    }
+  }
 
-      &:lang(fa) {
-        right: 0;
-      }
+  #click-reciever:checked ~ ul {
+    &:lang(en) {
+      left: 0;
+    }
+
+    &:lang(fa) {
+      right: 0;
     }
   }
 }
 
-@media screen and (min-width: 900px) {
+// min-screen: 768px;
+@include md {
   .menu-container {
+    padding: 0;
     #click-reciever {
+      display: none;
+    }
+    .hamburger {
       display: none;
     }
     .menu__list {
@@ -116,6 +155,16 @@
       margin: 0;
       padding: 0;
       list-style: none;
+
+      width: unset;
+      background: unset;
+      transition: unset;
+
+      &:lang(en),
+      &:lang(fa) {
+        left: unset;
+        right: unset;
+      }
 
       .menu__item {
         margin: 1em 0;
@@ -154,43 +203,6 @@
       transform: scale3d(1, 1, 1);
       transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
       transition-duration: 0.4s;
-    }
-  }
-}
-
-.menu-container {
-  .menu__list {
-    .menu__item {
-      display: block;
-      .menu__link {
-        font-size: 1.05em;
-        font-weight: bold;
-        display: block;
-        padding: 1em;
-        cursor: pointer;
-        user-select: none;
-        -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-        position: relative;
-        display: block;
-        text-align: center;
-        color: #929292;
-        transition: color 0.4s;
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          outline: none;
-          color: #d94f5c;
-        }
-      }
-    }
-
-    .menu__item.menu__item--current {
-      .menu__link {
-        color: #d94f5c;
-      }
     }
   }
 }
