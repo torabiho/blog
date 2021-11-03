@@ -27,7 +27,7 @@ const Toolbar = (props) => {
       <div className="search-wrapper">
         <input
           type="search"
-          autoFocus
+          autoFocus={isDesktop}
           placeholder={t("Gallery-toolbar-search-placeholder")}
           onChange={props.onHandleSearch}
         />
