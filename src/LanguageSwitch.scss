@@ -38,18 +38,18 @@
   .slider {
     position: absolute;
     cursor: pointer;
+    direction: rtl;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     transition: 0.4s;
-    align-items: center;
     background-color: #d94f5c;
     color: white;
     border-radius: 15px;
-    justify-content: center;
-    display: flex;
-    text-indent: $medium;
+    display: inline-flex;
+    align-items: center;
+    padding-right: $small;
 
     &:before {
       position: absolute;
@@ -67,11 +67,8 @@
 
   input:checked + .slider {
     background-color: #375195;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding-left: $medium;
-    color: white;
+    direction: ltr;
+    padding-left: $small;
     &:before {
       transform: translateX(35px);
     }
