@@ -69,6 +69,7 @@
     background-color: #375195;
     direction: ltr;
     padding-left: $small;
+    padding-right: 0;
     &:before {
       transform: translateX(35px);
     }
