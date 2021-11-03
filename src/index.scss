@@ -1,5 +1,24 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+
+  &:lang(fa) {
+    font-family: tahrirFont;
+  }
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 body {

@@ -1,10 +1,12 @@
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import useMediaQuery from "./hooks/useMediaQuery";
 import Toolbar from "./Toolbar";
 import "./Gallery.scss";
 
 const gridView = "gridView";
 
 const Gallery = ({ data }) => {
+  const isMobile = useMediaQuery("(max-width: 576px)");
   const [view, setView] = useState(gridView);
   const [filter, setFilter] = useState("");
 
@@ -15,6 +17,12 @@ const Gallery = ({ data }) => {
   const handleSearch = (event) => {
     setFilter(event.target.value);
   };
+
+  useEffect(() => {
+    if (isMobile) {
+      switchView(gridView);
+    }
+  }, [isMobile]);
 
   const filteredPosts = useMemo(
     () =>

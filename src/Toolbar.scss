@@ -12,10 +12,17 @@
 }
 
 .toolbar input[type="search"] {
-  font-size: 1.1rem;
+  font-size: 26px;
   border: none;
   border-bottom: 1px solid;
   padding: $xxSmall;
+  background: transparent;
+  text-indent: $xxSmall;
+
+  &::placeholder {
+    color: black;
+    opacity: 0.5;
+  }
 }
 
 .toolbar input[type="range"] {
@@ -44,7 +51,7 @@
 }
 
 .view-options li:not(:last-child) {
-  margin-right: 1.2rem;
+  margin-right: $large;
 }
 
 .view-options button {

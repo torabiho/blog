@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
 import "./Toolbar.scss";
@@ -9,9 +9,9 @@ const gridView = "gridView";
 const dNone = "d-none";
 const Toolbar = (props) => {
   const { t } = useTranslation();
-  const [rangeValue, setRangeValue] = React.useState("280");
+  const [rangeValue, setRangeValue] = useState("280");
   const isDesktop = useMediaQuery("(min-width: 992px)");
-  React.useEffect(() => {
+  useEffect(() => {
     if (isDesktop) {
       document.documentElement.style.setProperty(
         "--minRangeValue",
@@ -27,6 +27,7 @@ const Toolbar = (props) => {
       <div className="search-wrapper">
         <input
           type="search"
+          autoFocus
           placeholder={t("Gallery-toolbar-search-placeholder")}
           onChange={props.onHandleSearch}
         />

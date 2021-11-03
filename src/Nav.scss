@@ -92,7 +92,6 @@
       display: block;
       padding: 0;
       &:lang(fa) {
-        font-family: tahrirFont;
         font-size: 26px;
       }
       .menu__link {
@@ -167,13 +166,15 @@
       }
 
       .menu__item {
-        margin: 1em 0;
+        display: flex;
+        align-items: center;
+        margin: $medium 0;
       }
     }
   }
 
   .menu__link {
-    margin: 0 1em;
+    margin: 0 $medium;
     &::before,
     &::after {
       content: "";
