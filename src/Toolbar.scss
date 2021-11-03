@@ -9,16 +9,23 @@
 
 .toolbar .search-wrapper {
   position: relative;
+  max-width: 100%;
+  width: 100%;
 }
 
 .toolbar input[type="search"] {
   font-size: 26px;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid;
   padding: $xxSmall;
   background: transparent;
   text-indent: $xxSmall;
-
+  max-width: 100%;
+  width: 100%;
+  @include sm {
+    width: unset;
+  }
   &::placeholder {
     color: black;
     opacity: 0.5;
@@ -46,8 +53,11 @@
 }
 
 .view-options {
-  display: flex;
-  align-items: center;
+  display: none;
+  @include md {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .view-options li:not(:last-child) {
