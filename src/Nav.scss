@@ -136,8 +136,8 @@
   }
 }
 
-// min-screen: 768px;
-@include md {
+// min-screen: 992px;
+@include lg {
   .menu-container {
     padding: 0;
     #click-reciever {

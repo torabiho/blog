@@ -1,0 +1,81 @@
+@import "./constants/mixins";
+@import "./constants/spaces";
+
+.language-switcher {
+  position: absolute;
+  left: $large;
+  top: $xxxLarge;
+  @include lg {
+    top: $large;
+  }
+
+  &:lang(en) {
+    right: $large;
+    left: unset;
+  }
+
+  @include md {
+    &:lang(fa),
+    &:lang(en) {
+      left: $large;
+      right: unset;
+    }
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+
+    input {
+      opacity: 0;
+      width: 70px;
+      height: 34px;
+      z-index: 2;
+      position: absolute;
+      cursor: pointer;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+    align-items: center;
+    background-color: #d94f5c;
+    color: white;
+    border-radius: 15px;
+    justify-content: center;
+    display: flex;
+    text-indent: $medium;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: $xxxSmall;
+      bottom: $xxxSmall;
+      background-color: white;
+      text-align: left;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: #375195;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-left: $medium;
+    color: white;
+    &:before {
+      transform: translateX(35px);
+    }
+  }
+}
