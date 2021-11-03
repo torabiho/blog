@@ -14,7 +14,7 @@
     left: unset;
   }
 
-  @include md {
+  @include lg {
     &:lang(fa),
     &:lang(en) {
       left: $large;
