@@ -5,9 +5,6 @@
   position: absolute;
   left: $large;
   top: $xxxLarge;
-  @include lg {
-    top: $large;
-  }
 
   &:lang(en) {
     right: $large;
@@ -15,6 +12,7 @@
   }
 
   @include lg {
+    top: $large;
     &:lang(fa),
     &:lang(en) {
       left: $large;
