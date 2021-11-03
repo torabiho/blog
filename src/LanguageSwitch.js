@@ -6,7 +6,7 @@ const alternateLanguage = (lang) => {
   return lang === "fa" ? "en" : "fa";
 };
 
-const LanguageSwitcher = () => {
+const LanguageSwitch = () => {
   const { t, i18n } = useTranslation();
   const changeLanguage = () => {
     const newLang = alternateLanguage(i18n.language);
@@ -14,7 +14,7 @@ const LanguageSwitcher = () => {
     document.documentElement.lang = newLang;
   };
   return (
-    <div className="language-switcher">
+    <div className="language-switch">
       <label className="switch">
         <input
           type="checkbox"
@@ -27,4 +27,4 @@ const LanguageSwitcher = () => {
   );
 };
 
-export default LanguageSwitcher;
+export default LanguageSwitch;
