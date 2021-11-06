@@ -12,7 +12,7 @@
   }
 
   @include lg {
-    top: $large;
+    top: $huge;
     &:lang(fa),
     &:lang(en) {
       left: $large;

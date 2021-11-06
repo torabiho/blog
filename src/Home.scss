@@ -14,7 +14,7 @@
 
     @include lg {
       flex-direction: row;
-      margin-bottom: $giant;
+      margin: $huge 0;
     }
 
     .header {

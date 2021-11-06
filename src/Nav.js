@@ -17,7 +17,7 @@ const Nav = () => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
   return (
-    <div>
+    <div className="nav-wrapper">
       <LanguageSwitch />
       <nav className="menu-container">
         <input

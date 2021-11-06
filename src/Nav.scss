@@ -138,6 +138,9 @@
 
 // min-screen: 992px;
 @include lg {
+  .nav-wrapper {
+    padding-top: $medium;
+  }
   .menu-container {
     padding: 0;
     #click-reciever {
