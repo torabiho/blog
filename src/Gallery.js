@@ -35,7 +35,7 @@ const Gallery = ({ data }) => {
   );
 
   return (
-    <section className="gallery">
+    <section className="gallery" id="home-gallery">
       <div className="container">
         <Toolbar
           view={view}

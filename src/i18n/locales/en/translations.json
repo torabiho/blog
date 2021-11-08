@@ -1,6 +1,7 @@
 {
     "fa": "فا",
-    "Gallery-toolbar-search-placeholder": "Search for posts",
+    "gallery-toolbar-search-placeholder": "Search for posts",
+    "gallery-toolbar-search-result": "Results: {{total}}",
     "header-main-title": "Colourful code writer",
     "header-sub-title": "...and expert in all other stuff",
     "home": "Home",

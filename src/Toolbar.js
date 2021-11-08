@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
 import "./Toolbar.scss";
@@ -9,6 +9,7 @@ const gridView = "gridView";
 const dNone = "d-none";
 const Toolbar = (props) => {
   const { t } = useTranslation();
+  const searchInputRef = useRef(null);
   const [rangeValue, setRangeValue] = useState("280");
   const isDesktop = useMediaQuery("(min-width: 992px)");
   useEffect(() => {
@@ -26,14 +27,19 @@ const Toolbar = (props) => {
     <div className="toolbar">
       <div className="search-wrapper">
         <input
+          ref={searchInputRef}
           type="search"
           autoFocus={isDesktop}
-          placeholder={t("Gallery-toolbar-search-placeholder")}
+          placeholder={t("gallery-toolbar-search-placeholder")}
           onChange={props.onHandleSearch}
         />
-        <div className="counter">
-          Total photos: <span>{props.total}</span>
-        </div>
+        {searchInputRef.current && searchInputRef.current.value !== "" && (
+          <div className="counter">
+            <span>
+              {t("gallery-toolbar-search-result", { total: props.total })}
+            </span>
+          </div>
+        )}
       </div>
       <ul className="view-options">
         <li className={`zoom ${props.view === listView ? dNone : ""}`}>

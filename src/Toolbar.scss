@@ -11,6 +11,9 @@
   position: relative;
   max-width: 100%;
   width: 100%;
+  @include sm {
+    width: unset;
+  }
 }
 
 .toolbar input[type="search"] {
@@ -20,14 +23,13 @@
   border-bottom: 1px solid;
   padding: $xxSmall;
   background: transparent;
-  text-indent: $xxSmall;
   max-width: 100%;
   width: 100%;
   @include sm {
     width: unset;
   }
   &::placeholder {
-    color: black;
+    color: gray;
     opacity: 0.5;
   }
 }
@@ -40,16 +42,17 @@
   }
 }
 
-.toolbar ::placeholder {
-  color: var(--gray);
-}
-
 .toolbar .counter {
   position: absolute;
   left: 0;
   top: calc(100% + 5px);
   font-size: 0.9rem;
-  color: var(--gray);
+  color: gray;
+  font-size: 20px;
+
+  &:lang(fa) {
+    right: 0;
+  }
 }
 
 .view-options {
@@ -70,5 +73,5 @@
 }
 
 .view-options .active button {
-  border-color: var(--darkgreen);
+  border-color: #375195;
 }

@@ -8,7 +8,7 @@ import Gallery from "./Gallery";
 import "./Home.scss";
 
 const Home = ({ t, i18n }) => {
-  const [username, setUsername] = useState("default user");
+  // const [username, setUsername] = useState("default user");
   // const usernameInput = useRef(null);
 
   // const handleClickEvent = () => {

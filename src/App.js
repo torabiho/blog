@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import AOS from "aos";
 import { Switch, Route } from "react-router-dom";
 import Nav from "./Nav";
 import "./App.css";
@@ -6,6 +8,10 @@ import Page2 from "./Page2";
 import Footer from "./Footer";
 
 const App = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="app">
       <Nav />

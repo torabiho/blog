@@ -3,18 +3,21 @@
 @import "./constants/fonts";
 
 .menu-container {
-  padding: $huge $huge 0 $huge;
+  padding: $xxxLarge $huge 0 $huge;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   #click-reciever {
     display: block;
-    width: 45px;
-    height: 32px;
+    width: 40px;
+    height: 44px;
     position: absolute;
     top: 35px;
-    left: 34px;
+    left: 43px;
 
     &:lang(fa) {
       left: unset;
-      right: 34px;
+      right: 42px;
     }
 
     cursor: pointer;
@@ -25,44 +28,65 @@
     -webkit-touch-callout: none;
   }
 
-  .hamburger {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background: #cdcdcd;
-    border-radius: 3px;
-    z-index: 2;
+  .hamburger-wrapper {
+    background-color: transparent;
+    width: fit-content;
+    padding: $xxSmall;
+    border-radius: 4px;
+    &[data-aos="hamburger-color-animation"] {
+      transition-property: background-color;
 
-    transform-origin: 4px 0px;
+      &.aos-animate {
+        background-color: #8a6f48;
+        .hamburger {
+          background: #e0d9cc;
+        }
+      }
+    }
+    .hamburger {
+      display: block;
+      width: 33px;
+      height: 4px;
+      position: relative;
+      background-color: #cdcdcd;
+      border-radius: 3px;
+      z-index: 2;
 
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-      background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-  }
+      transform-origin: 4px 0px;
 
-  .hamburger:first-child {
-    transform-origin: 0% 0%;
-  }
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        opacity 0.55s ease;
 
-  .hamburger:nth-last-child(2) {
-    transform-origin: 0% 100%;
+      &:first-child {
+        transform-origin: 0% 0%;
+      }
+
+      &:nth-last-child(2) {
+        margin: 5px 0;
+        transform-origin: 0% 100%;
+      }
+    }
   }
 
   // Transform all the slices of hamburger into a crossmark.
 
-  #click-reciever:checked ~ .hamburger {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
+  #click-reciever:checked ~ .hamburger-wrapper .hamburger {
+    background: #a5a0a0;
   }
 
-  #click-reciever:checked ~ .hamburger:nth-last-child(3) {
+  #click-reciever:checked ~ .hamburger-wrapper .hamburger:nth-last-child(3) {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -4px);
+  }
+
+  #click-reciever:checked ~ .hamburger-wrapper .hamburger:nth-last-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
 
-  #click-reciever:checked ~ .hamburger:nth-last-child(2) {
+  #click-reciever:checked ~ .hamburger-wrapper .hamburger:nth-last-child(1) {
+    opacity: 1;
     transform: rotate(-45deg) translate(0, -1px);
   }
 
@@ -71,9 +95,8 @@
     width: 300px;
     margin-top: -100px;
     padding: $xGiant 0 $large 0;
-    z-index: 1;
-
-    background: #ededed;
+    border-radius: 14px;
+    background: #e0d9cc;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     /* to stop flickering of text in safari */
@@ -138,11 +161,13 @@
 
 // min-screen: 992px;
 @include lg {
-  .nav-wrapper {
-    padding-top: $medium;
-  }
   .menu-container {
+    position: relative;
     padding: 0;
+    padding-top: $medium;
+    .hamburger-wrapper {
+      display: none;
+    }
     #click-reciever {
       display: none;
     }

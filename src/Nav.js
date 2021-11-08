@@ -17,7 +17,7 @@ const Nav = () => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
   return (
-    <div className="nav-wrapper">
+    <>
       <LanguageSwitch />
       <nav className="menu-container">
         <input
@@ -26,9 +26,16 @@ const Nav = () => {
           checked={checked}
           onChange={() => setChecked((prevState) => !prevState)}
         />
-        <span className="hamburger"></span>
-        <span className="hamburger"></span>
-        <span className="hamburger"></span>
+        <div
+          className="hamburger-wrapper"
+          data-aos="hamburger-color-animation"
+          data-aos-anchor="#home-gallery"
+          data-aos-anchor-placement="top-center"
+        >
+          <span className="hamburger"></span>
+          <span className="hamburger"></span>
+          <span className="hamburger"></span>
+        </div>
         <ul className="menu__list">
           {menuItems.map((item, index) => (
             <li
@@ -48,7 +55,7 @@ const Nav = () => {
           ))}
         </ul>
       </nav>
-    </div>
+    </>
   );
 };
 
