@@ -1,5 +1,5 @@
-@import "./constants/mixins";
-@import "./constants/spaces";
+@import "../constants/mixins";
+@import "../constants/spaces";
 
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -46,7 +46,7 @@ a {
 
 .image-list li {
   cursor: pointer;
-  border-image: url("./images/stamp-border.png") 8 round;
+  border-image: url("../images/stamp-border.png") 8 round;
   border-width: 8px;
   border-style: solid;
   filter: drop-shadow(0 0 3px #3b2902);

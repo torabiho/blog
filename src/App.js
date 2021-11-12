@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import { Switch, Route } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from "./components/Nav";
 import "./App.css";
 import Home from "./Home";
 import Page2 from "./Page2";

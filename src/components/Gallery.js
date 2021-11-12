@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import useMediaQuery from "./hooks/useMediaQuery";
+import useMediaQuery from "../hooks/useMediaQuery";
 import Toolbar from "./Toolbar";
 import "./Gallery.scss";
 

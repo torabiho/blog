@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import useMediaQuery from "./hooks/useMediaQuery";
+import useMediaQuery from "../hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
 import "./Toolbar.scss";
 
