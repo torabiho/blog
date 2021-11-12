@@ -1,0 +1,102 @@
+@import "./constants/mixins";
+@import "./constants/spaces";
+@import "./constants/fonts";
+
+#click-reciever {
+  display: block;
+  width: 40px;
+  height: 44px;
+  position: absolute;
+  top: 35px;
+  left: 43px;
+
+  @include lg {
+    display: none;
+  }
+
+  &:lang(fa) {
+    left: unset;
+    right: 42px;
+  }
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 3; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+.hamburger-wrapper {
+  background-color: transparent;
+  width: fit-content;
+  padding: $xxSmall;
+  border-radius: 4px;
+  @include lg {
+    display: none;
+  }
+  &[data-aos="hamburger-color-animation"] {
+    transition-property: background-color;
+
+    &.aos-animate {
+      background-color: #8a6f48;
+      .hamburger {
+        background: #e0d9cc;
+      }
+    }
+  }
+  .hamburger {
+    display: block;
+    width: 33px;
+    height: 4px;
+    position: relative;
+    background-color: #cdcdcd;
+    border-radius: 3px;
+    z-index: 2;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+
+    &:first-child {
+      transform-origin: 0% 0%;
+    }
+
+    &:nth-last-child(2) {
+      margin: 5px 0;
+      transform-origin: 0% 100%;
+    }
+  }
+}
+
+// Transform all the slices of hamburger into a crossmark.
+
+#click-reciever:checked ~ .hamburger-wrapper .hamburger {
+  background: #a5a0a0;
+}
+
+#click-reciever:checked ~ .hamburger-wrapper .hamburger:nth-last-child(3) {
+  opacity: 1;
+  transform: rotate(45deg) translate(0px, -4px);
+}
+
+#click-reciever:checked ~ .hamburger-wrapper .hamburger:nth-last-child(2) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#click-reciever:checked ~ .hamburger-wrapper .hamburger:nth-last-child(1) {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#click-reciever:checked ~ ul {
+  &:lang(en) {
+    left: 0;
+  }
+
+  &:lang(fa) {
+    right: 0;
+  }
+}

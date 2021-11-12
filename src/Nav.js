@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "./LanguageSwitch";
+import HamburgerMenu from "./HamburgerMenu";
 import "./Nav.scss";
 
 const menuItems = [
@@ -15,27 +16,15 @@ const menuItems = [
 const Nav = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const [checked, setChecked] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   return (
     <>
       <LanguageSwitch />
       <nav className="menu-container">
-        <input
-          id="click-reciever"
-          type="checkbox"
-          checked={checked}
-          onChange={() => setChecked((prevState) => !prevState)}
+        <HamburgerMenu
+          shouldExpand={expanded}
+          onExpand={() => setExpanded((prevState) => !prevState)}
         />
-        <div
-          className="hamburger-wrapper"
-          data-aos="hamburger-color-animation"
-          data-aos-anchor="#home-gallery"
-          data-aos-anchor-placement="top-center"
-        >
-          <span className="hamburger"></span>
-          <span className="hamburger"></span>
-          <span className="hamburger"></span>
-        </div>
         <ul className="menu__list">
           {menuItems.map((item, index) => (
             <li
@@ -47,7 +36,7 @@ const Nav = () => {
               <Link
                 to={item.link}
                 className="menu__link"
-                onClick={() => setChecked(false)}
+                onClick={() => setExpanded(false)}
               >
                 {t(item.title)}
               </Link>
