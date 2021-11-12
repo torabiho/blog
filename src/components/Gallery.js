@@ -51,13 +51,7 @@ const Gallery = ({ data }) => {
         >
           {filteredPosts.map((post) => (
             <li key={post._id}>
-              <Link
-                to={{
-                  pathname: `/post/${post._id}`,
-                  state: { postId: post._id },
-                }}
-                className="gallery-item__link"
-              >
+              <Link to={`/post/${post._id}`} className="gallery-item__link">
                 <figure>
                   <img
                     src={
