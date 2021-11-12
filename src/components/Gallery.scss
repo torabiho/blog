@@ -51,6 +51,10 @@ a {
   border-style: solid;
   filter: drop-shadow(0 0 3px #3b2902);
 
+  .gallery-item__link {
+    text-decoration: none;
+  }
+
   figure {
     background: var(--brown);
     color: var(--white);

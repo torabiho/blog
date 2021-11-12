@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import "./App.css";
 import Home from "./pages/Home";
-import Page2 from "./pages/Page2";
+import Post from "./pages/Post";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/page2" component={Page2} />
+        <Route path="/post/:id" component={Post} />
       </Switch>
       <Footer />
     </div>
