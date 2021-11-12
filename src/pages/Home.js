@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trans, withTranslation } from "react-i18next";
 import axios from "axios";
-import stamp from "./images/stamp.png";
-import headerBg from "./images/headerBg.png";
-import Gallery from "./components/Gallery";
+import stamp from "../images/stamp.png";
+import headerBg from "../images/headerBg.png";
+import Gallery from "../components/Gallery";
 import "./Home.scss";
 
 const Home = ({ t, i18n }) => {

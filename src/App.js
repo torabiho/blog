@@ -3,9 +3,9 @@ import AOS from "aos";
 import { Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import "./App.css";
-import Home from "./Home";
-import Page2 from "./Page2";
-import Footer from "./Footer";
+import Home from "./pages/Home";
+import Page2 from "./pages/Page2";
+import Footer from "./components/Footer";
 
 const App = () => {
   useEffect(() => {

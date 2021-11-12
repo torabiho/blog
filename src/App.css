@@ -6,7 +6,7 @@
       rgba(224, 217, 204, 0.3),
       rgba(224, 217, 204, 0.3)
     ),
-    url("./main-background.jpeg");
+    url("./images/main-background.jpeg");
   background-size: cover;
   background-position: 50% 50%;
 }
