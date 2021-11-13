@@ -35,7 +35,7 @@ const Post = ({ match, i18n }) => {
         <p>{post?.subtitle}</p>
 
         {post?.content.map((item, index) => (
-          <p key={index}>{item[i18n.language]}</p>
+          <p key={index}>{item.paragraph}</p>
         ))}
 
         <p>
@@ -48,7 +48,7 @@ const Post = ({ match, i18n }) => {
         </p>
       </div>
     ),
-    [post, i18n.language]
+    [post]
   );
 };
 
