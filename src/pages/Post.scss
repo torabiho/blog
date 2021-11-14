@@ -56,22 +56,6 @@
         right: -3px;
         top: 0px;
       }
-
-      &:hover:before {
-        transform: rotate(0deg);
-        border: solid rgba(111, 99, 61, 0.4);
-        border-width: 0px 0px 0px 1px;
-        left: -6px;
-        top: -6px;
-      }
-
-      &:hover:after {
-        transform: rotate(0deg);
-        border: solid rgba(111, 99, 61, 0.4);
-        border-width: 0px 0px 0px 1px;
-        right: 3px;
-        top: -3px;
-      }
     }
     @include md {
       padding: $xxxHuge;
