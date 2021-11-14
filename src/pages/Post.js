@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
+import "./Post.scss";
 
 const Post = ({ match, i18n }) => {
   const [post, setPost] = useState(null);
@@ -30,22 +31,26 @@ const Post = ({ match, i18n }) => {
 
   return useMemo(
     () => (
-      <div className="body">
-        <p>{post?.title}</p>
-        <p>{post?.subtitle}</p>
+      <div className="post-container">
+        <div className="post__paper">
+          <h1 className="post__title">{post?.title}</h1>
+          <h2 className="post__subtitle">{post?.subtitle}</h2>
 
-        {post?.content.map((item, index) => (
-          <p key={index}>{item.paragraph}</p>
-        ))}
+          {post?.content.map((item, index) => (
+            <p key={index} className="post__paragraph">
+              {item.paragraph}
+            </p>
+          ))}
 
-        <p>
-          <Trans>this-is-page2</Trans>
-        </p>
-        <p>
-          <Trans i18nKey="go-to-home">
-            <Link to="/"></Link>
-          </Trans>
-        </p>
+          <p>
+            <Trans>this-is-page2</Trans>
+          </p>
+          <p>
+            <Trans i18nKey="go-to-home">
+              <Link to="/"></Link>
+            </Trans>
+          </p>
+        </div>
       </div>
     ),
     [post]

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import { Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
-import "./App.css";
+import "./App.scss";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
 import Footer from "./components/Footer";
