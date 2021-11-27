@@ -23,7 +23,7 @@
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     &:lang(en) {
-      left: -300px;
+      left: -310px;
       &:before {
         left: $huge;
         right: unset;
@@ -31,7 +31,7 @@
     }
 
     &:lang(fa) {
-      right: -300px;
+      right: -310px;
       &:before {
         right: $huge;
         left: unset;
