@@ -110,6 +110,10 @@
       transition: unset;
       box-shadow: unset;
 
+      &:before {
+        display: none;
+      }
+
       &:lang(en),
       &:lang(fa) {
         left: unset;
