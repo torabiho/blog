@@ -11,36 +11,52 @@
   .menu__list {
     position: absolute;
     width: 300px;
-    margin-top: -100px;
+    margin-top: -93px;
     padding: $xGiant 0 $large 0;
     border-radius: 14px;
     background: #fafafa;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2),
-      inset 0 0 300px rgba(138, 65, 3, 0.4);
     /* to stop flickering of text in safari */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2),
+      inset 0 0 300px rgba(222, 198, 122, 0.4);
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     &:lang(en) {
       left: -300px;
+      &:before {
+        left: $huge;
+        right: unset;
+      }
     }
 
     &:lang(fa) {
       right: -300px;
+      &:before {
+        right: $huge;
+        left: unset;
+      }
     }
 
-    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background: #db4034;
+    }
 
     .menu__item {
       display: block;
       padding: 0;
-      margin: 0 $xLarge;
       &:lang(fa) {
         font-size: 26px;
       }
       &:not(:last-child) {
-        border-bottom: solid thin darkslategray;
+        border-bottom: solid thin #00b0d7;
       }
       .menu__link {
         font-weight: bold;
