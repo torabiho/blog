@@ -38,13 +38,7 @@
   }
   &[data-aos="hamburger-color-animation"] {
     &.aos-animate {
-      &:lang(en) {
-        background-color: #375195;
-      }
-
-      &:lang(fa) {
-        background-color: #d94f5c;
-      }
+      background-color: #d94f5c;
       .hamburger {
         background-color: #e0d9cc;
       }
@@ -57,14 +51,7 @@
     position: relative;
     border-radius: 3px;
     z-index: 2;
-
-    &:lang(en) {
-      background-color: #375195;
-    }
-
-    &:lang(fa) {
-      background-color: #d94f5c;
-    }
+    background-color: #d94f5c;
 
     transform-origin: 4px 0px;
 
@@ -85,7 +72,7 @@
 // Transform all the slices of hamburger into a crossmark.
 
 #click-reciever:checked ~ .hamburger-wrapper {
-  &:lang(en) {
+  &:not(:lang(fa)) {
     margin: 0 0 0 $medium;
   }
 
@@ -114,7 +101,7 @@
 }
 
 #click-reciever:checked ~ ul {
-  &:lang(en) {
+  &:not(:lang(fa)) {
     left: 0;
   }
 

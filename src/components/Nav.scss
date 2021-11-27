@@ -22,7 +22,7 @@
       inset 0 0 300px rgba(222, 198, 122, 0.4);
     transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
-    &:lang(en) {
+    &:not(:lang(fa)) {
       left: -310px;
       &:before {
         left: $huge;

@@ -33,7 +33,7 @@ body {
     direction: rtl;
   }
 
-  &:lang(en) {
+  &:not(:lang(fa)) {
     direction: ltr;
   }
 }

@@ -44,7 +44,7 @@
     right: 0;
     bottom: 0;
     transition: 0.4s;
-    background-color: #d94f5c;
+    background-color: #375195;
     color: white;
     border-radius: 15px;
     display: inline-flex;
@@ -66,7 +66,6 @@
   }
 
   input:checked + .slider {
-    background-color: #375195;
     direction: ltr;
     padding-left: $small;
     padding-right: 0;
