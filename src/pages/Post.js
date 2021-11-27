@@ -34,7 +34,7 @@ const Post = ({ match, i18n }) => {
       <div className="post-container">
         <div className="post__paper">
           <h1 className="post__title">{post?.title}</h1>
-          <h2 className="post__subtitle">{post?.subtitle}</h2>
+          <h2 className="post__subtitle hamburger-trigger">{post?.subtitle}</h2>
 
           {post?.content.map((item, index) => (
             <p key={index} className="post__paragraph">

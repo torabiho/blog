@@ -9,7 +9,9 @@ import Footer from "./components/Footer";
 
 const App = () => {
   useEffect(() => {
-    AOS.init();
+    setTimeout(() => {
+      AOS.init();
+    }, 100);
   }, []);
 
   return (

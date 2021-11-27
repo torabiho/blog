@@ -36,7 +36,7 @@ const Gallery = ({ data }) => {
   );
 
   return (
-    <section className="gallery" id="home-gallery">
+    <section className="gallery hamburger-trigger">
       <div className="container">
         <Toolbar
           view={view}
