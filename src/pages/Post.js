@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
+import Comments from "../components/Comments";
 import "./Post.scss";
 
 const Post = ({ match, i18n }) => {
@@ -19,7 +20,6 @@ const Post = ({ match, i18n }) => {
             },
           }
         );
-
         setPost(result.data);
       } catch (error) {
         console.log(error);
@@ -41,7 +41,6 @@ const Post = ({ match, i18n }) => {
               {item.paragraph}
             </p>
           ))}
-
           <p>
             <Trans>this-is-page2</Trans>
           </p>
@@ -51,6 +50,7 @@ const Post = ({ match, i18n }) => {
             </Trans>
           </p>
         </div>
+        {post?.comments && <Comments comments={post.comments} />}
       </div>
     ),
     [post]

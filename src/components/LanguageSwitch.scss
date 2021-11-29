@@ -6,7 +6,7 @@
   left: $large;
   top: $xxxLarge;
 
-  &:lang(en) {
+  &:not(:lang(fa)) {
     right: $large;
     left: unset;
   }
