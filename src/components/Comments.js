@@ -5,8 +5,7 @@ import commentIcon from "../images/comment.png";
 import { isRTL } from "../helpers";
 
 const Comments = (props) => {
-  const { t } = useTranslation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="comments__wrapper">
