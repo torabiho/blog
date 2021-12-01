@@ -1,5 +1,6 @@
 @import "../constants/mixins";
 @import "../constants/spaces";
+@import "../constants/fonts";
 
 .toolbar {
   display: flex;
@@ -17,7 +18,7 @@
 }
 
 .toolbar input[type="search"] {
-  font-size: 26px;
+  @include typewriter3(normal, bold);
   border: none;
   border-radius: 0;
   border-bottom: 1px solid;
@@ -30,7 +31,7 @@
   }
   &::placeholder {
     color: gray;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 
@@ -43,12 +44,11 @@
 }
 
 .toolbar .counter {
+  @include typewriter4;
   position: absolute;
   left: 0;
   top: calc(100% + 5px);
-  font-size: 0.9rem;
   color: gray;
-  font-size: 20px;
 
   &:lang(fa) {
     right: 0;

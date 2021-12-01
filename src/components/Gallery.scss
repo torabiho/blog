@@ -1,5 +1,6 @@
 @import "../constants/mixins";
 @import "../constants/spaces";
+@import "../constants/fonts";
 
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -67,13 +68,12 @@ a {
 }
 
 .image-list p:first-child {
-  font-family: tahrirFontBold;
-  font-size: 28px;
+  @include typewriter3(normal, bold);
 }
 
 .image-list p:last-child {
   margin-top: $xSmall;
-  font-size: 20px;
+  @include typewriter4;
 }
 
 /* GRID VIEW

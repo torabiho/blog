@@ -6,19 +6,19 @@
   padding: $huge;
 
   .post__title {
+    @include typewriter1;
     margin-bottom: $medium;
     color: #375195;
-    font-size: 48px;
   }
 
   .post__subtitle {
+    @include typewriter2;
     margin-bottom: $medium;
-    font-size: 32px;
   }
 
   .post__paragraph {
+    @include typewriter3;
     margin-bottom: $medium;
-    font-size: $xxLarge;
     text-align: justify;
   }
 

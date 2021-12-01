@@ -13,3 +13,114 @@
   font-family: hilan;
   src: url("./DigiـHilan.ttf");
 }
+
+/*************************************/
+
+@mixin typewriterItalic {
+  font-family: dico-typewriter, mono;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@mixin typewriterNormal {
+  font-family: dico-typewriter, mono;
+}
+
+@mixin typewriterScript {
+  font-family: dico-typewriter-script, mono;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*************************************/
+
+@mixin hilan($fontStyle: normal, $fontWeight: 400) {
+  &:lang(fa),
+  &:not(:lang(fa)) {
+    font-family: hilan;
+  }
+
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+  word-spacing: 6px;
+}
+
+@mixin typewriter($fontStyle: normal, $fontWeight: 400) {
+  &:lang(fa) {
+    font-family: tahrirFont;
+  }
+
+  &:not(:lang(fa)) {
+    font-family: dico-typewriter, mono;
+  }
+
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+}
+
+/*************************************/
+
+@mixin typewriter1() {
+  &:lang(fa) {
+    @include typewriter(normal, normal);
+    font-size: 48px;
+  }
+
+  &:not(:lang(fa)) {
+    @include typewriter(normal, bold);
+    font-size: 28px;
+  }
+}
+
+@mixin typewriter2() {
+  &:lang(fa) {
+    @include typewriter(normal, normal);
+    font-size: 32px;
+  }
+
+  &:not(:lang(fa)) {
+    @include typewriter(normal, normal);
+    font-size: 22px;
+  }
+}
+
+@mixin typewriter3($fontStyle: normal, $fontWeight: 400) {
+  &:lang(fa) {
+    @include typewriter();
+    font-size: 28px;
+  }
+
+  &:not(:lang(fa)) {
+    @include typewriter($fontStyle, $fontWeight);
+    font-size: 18px;
+  }
+}
+
+@mixin typewriter4($fontStyle: normal, $fontWeight: 400) {
+  &:lang(fa) {
+    @include typewriter();
+    font-size: 24px;
+  }
+
+  &:not(:lang(fa)) {
+    @include typewriter($fontStyle, $fontWeight);
+    font-size: 14px;
+  }
+}
+
+/*************************************/
+
+@mixin hilan1() {
+  @include hilan();
+  font-size: 32px;
+}
+
+@mixin hilan2() {
+  @include hilan();
+  font-size: 24px;
+}
+
+@mixin hilan3() {
+  @include hilan();
+  font-size: 20px;
+}

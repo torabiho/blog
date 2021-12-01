@@ -21,11 +21,18 @@
       color: #375195;
       text-align: center;
       margin-bottom: $small;
+
       @include lg {
-        text-align: end;
+        &:lang(fa) {
+          text-align: end;
+        }
+
+        &:not(:lang(fa)) {
+          text-align: start;
+        }
       }
       .header__text {
-        font-size: 48px;
+        @include typewriter1;
       }
     }
   }
