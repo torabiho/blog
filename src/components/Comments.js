@@ -10,6 +10,7 @@ import "./Comments.scss";
 const Comments = ({ comments, postId }) => {
   const { t, i18n } = useTranslation();
   const [commentsList, setCommentsList] = useState(comments);
+  const [token, setToken] = useState(null);
   const commentRef = useRef(null);
   const authorRef = useRef(null);
 
@@ -24,16 +25,8 @@ const Comments = ({ comments, postId }) => {
     // setForm((currentForm) => {
     //  return {...currentForm, token }
     // })
+    setToken(token);
     console.log("this is token", token);
-    try {
-      const result = await axios.post(
-        "https://www.google.com/recaptcha/api/siteverify",
-        { secret: process.env.REACT_APP_SECRET_KEY, response: token }
-      );
-      console.log("result", result);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const handleSubmit = async (event) => {
@@ -46,6 +39,7 @@ const Comments = ({ comments, postId }) => {
         lang: i18n.language,
         approved: true,
       },
+      token,
     };
     try {
       const result = await axios.patch(
