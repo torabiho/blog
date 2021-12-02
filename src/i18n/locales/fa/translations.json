@@ -1,4 +1,5 @@
 {
+    "comment-author": "نام:",
     "comments": "نظرات",
     "en": "En",
     "gallery-toolbar-search-placeholder": "جستجو",
@@ -12,6 +13,7 @@
     "page5": "صفحه‌ی پنجم",
     "welcome": "خوش آمدی {{username}}",
     "change-username": "نام کاربری خود را تغییر دهید",
+    "send-comment": "ارسال نظر",
     "submit": "ارسال",
     "this-is-page2": "این <strong>صفحه‌ی ۲</strong> است",
     "go-to-home": "برو به <0>صفحه‌ی نخست</0>",

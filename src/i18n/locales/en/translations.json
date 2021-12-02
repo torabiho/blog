@@ -1,4 +1,5 @@
 {
+    "comment-author": "Name:",
     "comments": "Comments",
     "fa": "فا",
     "gallery-toolbar-search-placeholder": "Search for posts",
@@ -12,6 +13,7 @@
     "page5": "Fifth Page",
     "welcome": "Welcome, {{username}}",
     "change-username": "Change your username:",
+    "send-comment": "Send",
     "submit": "Submit",
     "this-is-page2": "This is <strong>page 2</strong>",
     "go-to-home": "Go to <0>the home page</0>",

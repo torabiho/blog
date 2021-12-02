@@ -5,6 +5,71 @@
 $paper-color: #f1ede9;
 $paper-line: rgba(148, 172, 212, 0.6);
 
+.cm__form {
+  max-width: 900px;
+  box-shadow: 10px 10px 40px rgba(black, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: $huge auto 0;
+  padding: $large;
+  display: flex;
+  flex-direction: column;
+
+  .cm__author--label {
+    @include typewriter4;
+    margin-bottom: $small;
+    .cm--author__input {
+      @include hilan3;
+      vertical-align: bottom;
+      background: transparent;
+      border-bottom: 1px solid gray;
+      border-radius: 0;
+      margin: 0 $xSmall;
+      padding: $xxSmall;
+
+      &:lang(fa) {
+        line-height: 34px;
+      }
+    }
+  }
+  .cm--message__input {
+    @include hilan3;
+    border-radius: 4px;
+    min-height: 150px;
+    resize: vertical;
+    padding: $small $large;
+    border: solid 1px gray;
+    background: transparent;
+    &:lang(fa) {
+      margin-right: $xxLarge;
+    }
+
+    &:not(:lang(fa)) {
+      margin-left: $xHuge;
+    }
+  }
+
+  .cm--message__submit {
+    @include typewriter4(normal, bold);
+    transition: background-color 0.5s;
+    cursor: pointer;
+    width: 100px;
+    align-self: end;
+    height: 40px;
+    margin-top: $small;
+    color: white;
+    background-color: #d94f5c;
+    border-radius: 4px;
+    &:lang(fa) {
+      padding-top: $xxxSmall;
+    }
+
+    &:hover {
+      background-color: #8c1520;
+    }
+  }
+}
+
 .comments__wrapper {
   max-width: 900px;
   box-shadow: 10px 10px 40px rgba(black, 0.15);
@@ -28,7 +93,7 @@ $paper-line: rgba(148, 172, 212, 0.6);
 .comment {
   width: 100%;
   height: 100%;
-  min-height: 60vh;
+  min-height: 125px;
   padding: 0 $large;
   background: repeating-linear-gradient(
     $paper-color,

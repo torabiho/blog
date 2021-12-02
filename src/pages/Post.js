@@ -50,10 +50,12 @@ const Post = ({ match, i18n }) => {
             </Trans>
           </p>
         </div>
-        {post?.comments && <Comments comments={post.comments} />}
+        {post?.comments && (
+          <Comments comments={post.comments} postId={match.params.id} />
+        )}
       </div>
     ),
-    [post]
+    [post, match.params.id]
   );
 };
 
