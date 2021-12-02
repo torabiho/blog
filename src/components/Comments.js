@@ -4,6 +4,7 @@ import axios from "axios";
 import moment from "jalali-moment";
 import commentIcon from "../images/comment.png";
 import { isRTL } from "../helpers";
+import ReCaptchaV2 from "react-google-recaptcha";
 import "./Comments.scss";
 
 const Comments = ({ comments, postId }) => {
@@ -11,6 +12,29 @@ const Comments = ({ comments, postId }) => {
   const [commentsList, setCommentsList] = useState(comments);
   const commentRef = useRef(null);
   const authorRef = useRef(null);
+
+  const handleExpire = (g) => {
+    // setForm((currentForm) => {
+    //  return {...currentForm, token: null }
+    // })
+    console.log("on expire", g);
+  };
+
+  const handleToken = async (token) => {
+    // setForm((currentForm) => {
+    //  return {...currentForm, token }
+    // })
+    console.log("this is token", token);
+    try {
+      const result = await axios.post(
+        "https://www.google.com/recaptcha/api/siteverify",
+        { secret: process.env.REACT_APP_SECRET_KEY, response: token }
+      );
+      console.log("result", result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,6 +66,11 @@ const Comments = ({ comments, postId }) => {
           <input className="cm--author__input" ref={authorRef} type="text" />
         </label>
         <textarea className="cm--message__input" ref={commentRef} />
+        <ReCaptchaV2
+          sitekey={process.env.REACT_APP_SITE_KEY}
+          onChange={handleToken}
+          onExpire={handleExpire}
+        />
         <input
           className="cm--message__submit"
           type="submit"
