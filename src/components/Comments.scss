@@ -11,26 +11,40 @@ $paper-line: rgba(148, 172, 212, 0.6);
   border-radius: 4px;
   overflow: hidden;
   margin: $huge auto 0;
-  padding: $large;
+  padding: $large $huge;
   display: flex;
   flex-direction: column;
 
   .cm__author--label {
     @include typewriter4;
-    margin-bottom: $small;
+    margin-bottom: $medium;
+    padding: 0 $xxSmall;
+    display: flex;
+    align-items: flex-end;
     .cm--author__input {
       @include hilan3;
-      vertical-align: bottom;
+      width: 100%;
+      max-width: 150px;
       background: transparent;
       border-bottom: 1px solid gray;
       border-radius: 0;
       margin: 0 $xSmall;
       padding: $xxSmall;
+      text-indent: $xSmall;
+      @include sm {
+        width: unset;
+        max-width: unset;
+      }
 
       &:lang(fa) {
         line-height: 34px;
       }
     }
+  }
+  .cm--message__captcha {
+    padding: $xxSmall 0;
+    display: flex;
+    justify-content: flex-end;
   }
   .cm--message__input {
     @include hilan3;
@@ -40,32 +54,29 @@ $paper-line: rgba(148, 172, 212, 0.6);
     padding: $small $large;
     border: solid 1px gray;
     background: transparent;
-    &:lang(fa) {
-      margin-right: $xxLarge;
-    }
-
-    &:not(:lang(fa)) {
-      margin-left: $xHuge;
-    }
   }
 
   .cm--message__submit {
     @include typewriter4(normal, bold);
     transition: background-color 0.5s;
-    cursor: pointer;
     width: 100px;
-    align-self: end;
+    align-self: flex-end;
     height: 40px;
     margin-top: $small;
-    color: white;
-    background-color: #d94f5c;
     border-radius: 4px;
+    background-color: lightgray;
+    cursor: not-allowed;
+
+    &:enabled {
+      color: white;
+      background-color: #d94f5c;
+      cursor: pointer;
+      &:hover {
+        background-color: #8c1520;
+      }
+    }
     &:lang(fa) {
       padding-top: $xxxSmall;
-    }
-
-    &:hover {
-      background-color: #8c1520;
     }
   }
 }

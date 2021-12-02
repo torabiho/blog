@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import useMediaQuery from "../hooks/useMediaQuery";
 import axios from "axios";
 import moment from "jalali-moment";
 import commentIcon from "../images/comment.png";
@@ -9,32 +10,34 @@ import "./Comments.scss";
 
 const Comments = ({ comments, postId }) => {
   const { t, i18n } = useTranslation();
+  const formRef = useRef(null);
   const [commentsList, setCommentsList] = useState(comments);
+  const isMobile = useMediaQuery("(max-width: 576px)");
+  const [captchaSize, setCaptchaSize] = useState("normal");
+  const [author, setAuthor] = useState("");
+  const [comment, setComment] = useState("");
   const [token, setToken] = useState(null);
-  const commentRef = useRef(null);
-  const authorRef = useRef(null);
 
-  const handleExpire = (g) => {
-    // setForm((currentForm) => {
-    //  return {...currentForm, token: null }
-    // })
-    console.log("on expire", g);
-  };
+  useEffect(() => {
+    if (isMobile) {
+      setCaptchaSize("compact");
+    }
+  }, [isMobile]);
 
-  const handleToken = async (token) => {
-    // setForm((currentForm) => {
-    //  return {...currentForm, token }
-    // })
-    setToken(token);
-    console.log("this is token", token);
+  const resetForm = () => {
+    formRef.current.reset();
+    window.grecaptcha.reset();
+    setToken(null);
+    setAuthor("");
+    setComment("");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const commentPayload = {
       comment: {
-        name: authorRef.current.value,
-        comment: commentRef.current.value,
+        name: author,
+        comment: comment,
         commentDate: new Date(),
         lang: i18n.language,
         approved: true,
@@ -46,29 +49,45 @@ const Comments = ({ comments, postId }) => {
         `${process.env.REACT_APP_API_URL}/api/posts/${postId}`,
         commentPayload
       );
+      resetForm();
       setCommentsList(result.data.comments);
     } catch (error) {
       console.log(error);
+      window.grecaptcha.reset();
     }
   };
 
+  const canSubmitComment = useMemo(
+    () => token && comment.length > 0 && author.length > 0,
+    [token, author.length, comment.length]
+  );
+
   return (
     <>
-      <form onSubmit={handleSubmit} className="cm__form">
+      <form onSubmit={handleSubmit} className="cm__form" ref={formRef}>
         <label className="cm__author--label">
           {t("comment-author")}
-          <input className="cm--author__input" ref={authorRef} type="text" />
+          <input
+            className="cm--author__input"
+            onChange={(e) => setAuthor(e.target.value)}
+            type="text"
+          />
         </label>
-        <textarea className="cm--message__input" ref={commentRef} />
+        <textarea
+          className="cm--message__input"
+          onChange={(e) => setComment(e.target.value)}
+        />
         <ReCaptchaV2
           sitekey={process.env.REACT_APP_SITE_KEY}
-          onChange={handleToken}
-          onExpire={handleExpire}
+          onChange={setToken}
+          size={captchaSize}
+          className="cm--message__captcha"
         />
         <input
           className="cm--message__submit"
           type="submit"
           value={t("send-comment")}
+          disabled={!canSubmitComment}
         />
       </form>
       {commentsList.length > 0 && (
