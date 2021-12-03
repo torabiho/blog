@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
 import Comments from "../components/Comments";
+import CloudinaryGallery from "../components/CloudinaryGallery";
 import "./Post.scss";
 
 const Post = ({ match, i18n }) => {
@@ -29,24 +30,6 @@ const Post = ({ match, i18n }) => {
     fetchData();
   }, [i18n.language, match.params.id]);
 
-  useEffect(() => {
-    if (post) {
-      let paragraphMeida;
-      post.content.forEach((paragraph, index) => {
-        if (paragraph.media.length > 0) {
-          paragraphMeida = window.cloudinary.galleryWidget({
-            container: `#media${index}`,
-            cloudName: "dxmkio4a8",
-            mediaAssets: paragraph.media.map((element) => ({
-              publicId: `blog/${post._id}/${element}`,
-            })),
-          });
-          paragraphMeida.render();
-        }
-      });
-    }
-  }, [post]);
-
   return (
     <div className="post-container">
       <div className="post__paper">
@@ -56,10 +39,13 @@ const Post = ({ match, i18n }) => {
         {post?.content.map((item, index) => (
           <div key={index}>
             <p className="post__paragraph">{item.paragraph}</p>
-            <div
-              id={`media${index}`}
-              className="post__paragraph--gallery"
-            ></div>
+            {item.media?.length > 0 && (
+              <CloudinaryGallery
+                index={index}
+                media={item.media}
+                postId={post._id}
+              />
+            )}
           </div>
         ))}
         <p>
