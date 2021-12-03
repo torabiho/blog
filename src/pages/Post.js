@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
@@ -29,23 +29,23 @@ const Post = ({ match, i18n }) => {
     fetchData();
   }, [i18n.language, match.params.id]);
 
-  const cloudnaryGalleryRef = useRef(null);
-
   useEffect(() => {
     if (post) {
-      if (!cloudnaryGalleryRef.current) {
-        cloudnaryGalleryRef.current = window.cloudinary.galleryWidget({
-          container: ".post__paragraph--gallery",
-          cloudName: "dxmkio4a8",
-          mediaAssets: [
-            { publicId: `blog/${post._id}/farhad` },
-            { publicId: `blog/${post._id}/sample1` },
-          ],
-        });
-      }
-      cloudnaryGalleryRef.current.render();
+      let paragraphMeida;
+      post.content.forEach((paragraph, index) => {
+        if (paragraph.media.length > 0) {
+          paragraphMeida = window.cloudinary.galleryWidget({
+            container: `#media${index}`,
+            cloudName: "dxmkio4a8",
+            mediaAssets: paragraph.media.map((element) => ({
+              publicId: `blog/${post._id}/${element}`,
+            })),
+          });
+          paragraphMeida.render();
+        }
+      });
     }
-  }, [cloudnaryGalleryRef, post]);
+  }, [post]);
 
   return (
     <div className="post-container">
