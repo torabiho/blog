@@ -23,9 +23,11 @@
   }
 
   .post__paragraph--gallery {
-    max-width: 80%;
     margin: 0 auto $large;
     direction: ltr;
+    @include sm {
+      max-width: 80%;
+    }
   }
 
   .post__paper {

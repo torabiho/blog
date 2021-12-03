@@ -6,11 +6,11 @@ import HamburgerMenu from "./HamburgerMenu";
 import "./Nav.scss";
 
 const menuItems = [
-  { title: "home", link: "/" },
-  { title: "page2", link: "/page2" },
-  { title: "page3", link: "/page3" },
-  { title: "page4", link: "/page4" },
-  { title: "page5", link: "/page5" },
+  { title: "nav-page1", link: "/" },
+  { title: "nav-page2", link: "/page2" },
+  { title: "nav-page3", link: "/page3" },
+  { title: "nav-page4", link: "/page4" },
+  { title: "nav-page5", link: "/page5" },
 ];
 
 const Nav = () => {

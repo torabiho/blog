@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import useMediaQuery from "../hooks/useMediaQuery";
 import Toolbar from "./Toolbar";
+import { CloudinaryImage } from "./CloudinaryImage";
 import "./Gallery.scss";
 
 const gridView = "gridView";
@@ -53,11 +54,9 @@ const Gallery = ({ data }) => {
             <li key={post._id}>
               <Link to={`/post/${post._id}`} className="gallery-item__link">
                 <figure>
-                  <img
-                    src={
-                      "https://ichef.bbci.co.uk/news/800/cpsprodpb/4543/production/_121113771_gettyimages-1234407816.jpg"
-                    }
-                    alt={post.title}
+                  <CloudinaryImage
+                    publicId={`${post._id}/${post.headerImage}`}
+                    className="gallery-item__image"
                   />
                   <figcaption>
                     <p>{post.title}</p>

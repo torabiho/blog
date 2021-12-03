@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { CloudinaryContext, Image } from "cloudinary-react";
-
-const myCloudName = "dxmkio4a8";
+import { CloudinaryImage, cloudName } from "./CloudinaryImage";
 
 const CloudinaryGallery = ({ media, index, postId }) => {
   const cloudnaryGalleryRef = useRef(null);
@@ -9,7 +7,7 @@ const CloudinaryGallery = ({ media, index, postId }) => {
     if (media.length > 1) {
       const paragraphMeida = window.cloudinary.galleryWidget({
         container: `#media${index}`,
-        cloudName: myCloudName,
+        cloudName: cloudName,
         themeProps: { active: "#d94f5c" },
         transition: "fade",
         mediaAssets: media.map((element) => ({
@@ -27,12 +25,10 @@ const CloudinaryGallery = ({ media, index, postId }) => {
   }, [index, media, postId]);
 
   return media.length === 1 ? (
-    <CloudinaryContext cloudName={myCloudName}>
-      <Image
-        publicId={`blog/${postId}/${media[0]}`}
-        className="post__paragraph--gallery"
-      />
-    </CloudinaryContext>
+    <CloudinaryImage
+      publicId={`${postId}/${media[0]}`}
+      className="post__paragraph--gallery"
+    />
   ) : (
     <div id={`media${index}`} className="post__paragraph--gallery"></div>
   );

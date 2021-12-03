@@ -56,6 +56,10 @@ a {
     text-decoration: none;
   }
 
+  .gallery-item__image {
+    width: 100%;
+  }
+
   figure {
     background: var(--brown);
     color: var(--white);
