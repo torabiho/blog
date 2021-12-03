@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
@@ -29,33 +29,52 @@ const Post = ({ match, i18n }) => {
     fetchData();
   }, [i18n.language, match.params.id]);
 
-  return useMemo(
-    () => (
-      <div className="post-container">
-        <div className="post__paper">
-          <h1 className="post__title">{post?.title}</h1>
-          <h2 className="post__subtitle hamburger-trigger">{post?.subtitle}</h2>
+  const cloudnaryGalleryRef = useRef(null);
 
-          {post?.content.map((item, index) => (
-            <p key={index} className="post__paragraph">
-              {item.paragraph}
-            </p>
-          ))}
-          <p>
-            <Trans>this-is-page2</Trans>
-          </p>
-          <p>
-            <Trans i18nKey="go-to-home">
-              <Link to="/"></Link>
-            </Trans>
-          </p>
-        </div>
-        {post?.comments && (
-          <Comments comments={post.comments} postId={match.params.id} />
-        )}
+  useEffect(() => {
+    if (post) {
+      if (!cloudnaryGalleryRef.current) {
+        cloudnaryGalleryRef.current = window.cloudinary.galleryWidget({
+          container: ".post__paragraph--gallery",
+          cloudName: "dxmkio4a8",
+          mediaAssets: [
+            { publicId: `blog/${post._id}/farhad` },
+            { publicId: `blog/${post._id}/sample1` },
+          ],
+        });
+      }
+      cloudnaryGalleryRef.current.render();
+    }
+  }, [cloudnaryGalleryRef, post]);
+
+  return (
+    <div className="post-container">
+      <div className="post__paper">
+        <h1 className="post__title">{post?.title}</h1>
+        <h2 className="post__subtitle hamburger-trigger">{post?.subtitle}</h2>
+
+        {post?.content.map((item, index) => (
+          <div key={index}>
+            <p className="post__paragraph">{item.paragraph}</p>
+            <div
+              id={`media${index}`}
+              className="post__paragraph--gallery"
+            ></div>
+          </div>
+        ))}
+        <p>
+          <Trans>this-is-page2</Trans>
+        </p>
+        <p>
+          <Trans i18nKey="go-to-home">
+            <Link to="/"></Link>
+          </Trans>
+        </p>
       </div>
-    ),
-    [post, match.params.id]
+      {post?.comments && (
+        <Comments comments={post.comments} postId={match.params.id} />
+      )}
+    </div>
   );
 };
 

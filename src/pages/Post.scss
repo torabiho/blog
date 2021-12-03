@@ -22,6 +22,12 @@
     text-align: justify;
   }
 
+  .post__paragraph--gallery {
+    max-width: 80%;
+    margin: 0 auto $large;
+    direction: ltr;
+  }
+
   .post__paper {
     @include sm {
       background: #fafafa;

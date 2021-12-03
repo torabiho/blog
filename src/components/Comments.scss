@@ -42,7 +42,7 @@ $paper-line: rgba(148, 172, 212, 0.6);
     }
   }
   .cm--message__captcha {
-    padding: $xxSmall 0;
+    margin-top: $small;
     display: flex;
     justify-content: flex-end;
   }
