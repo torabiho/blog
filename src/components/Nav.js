@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "./LanguageSwitch";
@@ -17,6 +17,10 @@ const Nav = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [pathname]);
   return (
     <>
       <LanguageSwitch />
@@ -33,11 +37,7 @@ const Nav = () => {
                 pathname === item.link && "menu__item--current"
               }`}
             >
-              <Link
-                to={item.link}
-                className="menu__link"
-                onClick={() => setExpanded(false)}
-              >
+              <Link to={item.link} className="menu__link">
                 {t(item.title)}
               </Link>
             </li>
