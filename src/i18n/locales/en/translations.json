@@ -1,6 +1,7 @@
 {
     "comment-author": "Name:",
     "comments": "Comments",
+    "continue": "Continue",
     "fa": "فا",
     "gallery-toolbar-search-placeholder": "Search for posts",
     "gallery-toolbar-search-result": "Results: {{total}}",

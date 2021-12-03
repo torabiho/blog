@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import useMediaQuery from "../hooks/useMediaQuery";
 import Toolbar from "./Toolbar";
 import { CloudinaryImage } from "./CloudinaryImage";
@@ -8,6 +9,7 @@ import "./Gallery.scss";
 const gridView = "gridView";
 
 const Gallery = ({ data }) => {
+  const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 576px)");
   const [view, setView] = useState(gridView);
   const [filter, setFilter] = useState("");
@@ -60,7 +62,14 @@ const Gallery = ({ data }) => {
                   />
                   <figcaption>
                     <p>{post.title}</p>
-                    <p>{post.subtitle}</p>
+                    <p>
+                      {view === gridView
+                        ? post.subtitle
+                        : post.content[0].paragraph
+                            .split(" ")
+                            .slice(0, 75)
+                            .join(" ") + ` ... ${t("continue")}`}
+                    </p>
                   </figcaption>
                 </figure>
               </Link>
