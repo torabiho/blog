@@ -86,7 +86,7 @@
 
 @mixin typewriter3($fontStyle: normal, $fontWeight: 400) {
   &:lang(fa) {
-    @include typewriter();
+    @include typewriter($fontStyle, $fontWeight);
     font-size: 28px;
   }
 
@@ -105,6 +105,18 @@
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 14px;
+  }
+}
+
+@mixin typewriter5($fontStyle: normal, $fontWeight: 400) {
+  &:lang(fa) {
+    @include typewriter($fontStyle, $fontWeight);
+    font-size: 20px;
+  }
+
+  &:not(:lang(fa)) {
+    @include typewriter($fontStyle, $fontWeight);
+    font-size: 12px;
   }
 }
 

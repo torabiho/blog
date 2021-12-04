@@ -3,6 +3,15 @@
 @import "./constants/spaces";
 @import "./constants/fonts";
 
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
 .app {
   background: linear-gradient(
       0deg,

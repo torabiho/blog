@@ -11,10 +11,6 @@
 .toolbar .search-wrapper {
   position: relative;
   max-width: 100%;
-  width: 100%;
-  @include sm {
-    width: unset;
-  }
 }
 
 .toolbar input[type="search"] {
@@ -56,11 +52,8 @@
 }
 
 .view-options {
-  display: none;
-  @include md {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 }
 
 .view-options li:not(:last-child) {
@@ -74,4 +67,11 @@
 
 .view-options .active button {
   border-color: #375195;
+}
+
+.zoom {
+  display: none;
+  @include md {
+    display: flex;
+  }
 }

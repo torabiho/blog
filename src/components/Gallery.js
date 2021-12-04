@@ -1,16 +1,11 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import useMediaQuery from "../hooks/useMediaQuery";
+import React, { useState, useMemo } from "react";
 import Toolbar from "./Toolbar";
-import { CloudinaryImage } from "./CloudinaryImage";
 import "./Gallery.scss";
+import { GridViewItem, ListViewItem } from "./GalleryItem";
 
 const gridView = "gridView";
 
 const Gallery = ({ data }) => {
-  const { t } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 576px)");
   const [view, setView] = useState(gridView);
   const [filter, setFilter] = useState("");
 
@@ -21,12 +16,6 @@ const Gallery = ({ data }) => {
   const handleSearch = (event) => {
     setFilter(event.target.value);
   };
-
-  useEffect(() => {
-    if (isMobile) {
-      switchView(gridView);
-    }
-  }, [isMobile]);
 
   const filteredPosts = useMemo(
     () =>
@@ -52,29 +41,13 @@ const Gallery = ({ data }) => {
             view === gridView ? "grid-view" : "list-view"
           }`}
         >
-          {filteredPosts.map((post) => (
-            <li key={post._id}>
-              <Link to={`/post/${post._id}`} className="gallery-item__link">
-                <figure>
-                  <CloudinaryImage
-                    publicId={`${post._id}/${post.headerImage}`}
-                    className="gallery-item__image"
-                  />
-                  <figcaption>
-                    <p>{post.title}</p>
-                    <p>
-                      {view === gridView
-                        ? post.subtitle
-                        : post.content[0].paragraph
-                            .split(" ")
-                            .slice(0, 75)
-                            .join(" ") + ` ... ${t("continue")}`}
-                    </p>
-                  </figcaption>
-                </figure>
-              </Link>
-            </li>
-          ))}
+          {filteredPosts.map((post) =>
+            view === gridView ? (
+              <GridViewItem post={post} key={post._id} />
+            ) : (
+              <ListViewItem post={post} key={post._id} />
+            )
+          )}
         </ol>
       </div>
     </section>

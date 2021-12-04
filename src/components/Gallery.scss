@@ -7,22 +7,6 @@
 
 :root {
   --minRangeValue: 280px;
-  --black: #1a1a1a;
-  --brown: brown;
-  --white: #fff;
-  --gray: #ccc;
-  --darkgreen: #18846c;
-  --lightbrown: antiquewhite;
-  --darkblack: rgba(0, 0, 0, 0.8);
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-a {
-  color: inherit;
 }
 
 .container {
@@ -33,98 +17,22 @@ a {
   @include xl {
     padding: 0;
   }
+  .image-list {
+    margin: $xHuge 0;
+  }
+
+  .grid-view {
+    display: grid;
+    grid-gap: 2rem;
+    @include sm {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(var(--minRangeValue), 1fr)
+      );
+    }
+  }
 }
 
 .d-none {
   display: none;
-}
-
-/* IMAGE LIST
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.image-list {
-  margin: $xHuge 0;
-}
-
-.image-list p:first-child {
-  @include typewriter3(normal, bold);
-}
-
-.image-list p:last-child {
-  margin-top: $xSmall;
-  @include typewriter4;
-}
-
-/* GRID VIEW
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.grid-view {
-  display: grid;
-  grid-gap: 2rem;
-  @include sm {
-    grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
-  }
-
-  li {
-    text-align: center;
-    cursor: pointer;
-    border-image: url("../images/stamp-border.png") 8 round;
-    border-width: 8px;
-    border-style: solid;
-    filter: drop-shadow(0 0 3px #3b2902);
-
-    @include md {
-      max-width: 456px;
-      text-align: unset;
-    }
-
-    .gallery-item__link {
-      text-decoration: none;
-    }
-
-    .gallery-item__image {
-      width: 100%;
-    }
-
-    figure {
-      background: var(--brown);
-      color: var(--white);
-      height: 100%;
-    }
-
-    &:hover {
-      filter: drop-shadow(1px 1px 3px #3b2902);
-    }
-  }
-}
-
-.grid-view figcaption {
-  padding: $small;
-}
-
-/* LIST VIEW
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.list-view li + li {
-  margin-top: $xLarge;
-}
-
-.list-view {
-  li {
-    border: solid 1px;
-    border-radius: 4px;
-    overflow: hidden;
-    background: wheat;
-    .gallery-item__link {
-      text-decoration: none;
-    }
-  }
-}
-
-.list-view figure {
-  display: grid;
-  grid-gap: $xLarge;
-  grid-template-columns: 150px 1fr;
-  align-items: center;
-
-  figcaption {
-    padding: 12px 0 12px 12px;
-  }
 }
