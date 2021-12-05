@@ -5,7 +5,6 @@ import Nav from "./components/Nav";
 import "./App.scss";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
-import Footer from "./components/Footer";
 
 const App = () => {
   useEffect(() => {
@@ -21,7 +20,6 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route path="/post/:id" component={Post} />
       </Switch>
-      <Footer />
     </div>
   );
 };

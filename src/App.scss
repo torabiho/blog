@@ -24,6 +24,7 @@ a {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2),
     inset 0 0 300px rgba(222, 198, 122, 0.4);
   min-height: 100vh;
+  padding-bottom: $huge;
 }
 
 .App-logo {
