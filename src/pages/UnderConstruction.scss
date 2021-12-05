@@ -1,0 +1,23 @@
+@import "../constants/mixins";
+@import "../constants/spaces";
+@import "../constants/fonts";
+
+.construction__wrapper {
+  @include typewriter1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-25deg);
+  color: #d94f5c;
+  border: solid 6px #d94f5c;
+  width: fit-content;
+  margin: auto;
+  height: fit-content;
+  padding: $xLarge;
+}

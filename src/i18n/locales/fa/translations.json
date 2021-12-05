@@ -7,11 +7,11 @@
     "gallery-toolbar-search-result": "نتایج: {{total}}",
     "header-main-title": "نویسنده‌ی کدهای رنگی",
     "header-sub-title": "وی در سایر امور نیز نظراتی داشت",
-    "nav-page1": "صفحه‌ی اول",
-    "nav-page2": "داستان کوتاه",
-    "nav-page3":  "کتابخونه",
-    "nav-page4": "ویدیو کلوپ",
-    "nav-page5": "و سایر موارد",
+    "nav-first-page": "صفحه‌ی اول",
+    "nav-short-stories": "داستان کوتاه",
+    "nav-library":  "کتابخونه",
+    "nav-movie-club": "ویدیو کلوپ",
+    "nav-etc": "و سایر موارد",
     "welcome": "خوش آمدی {{username}}",
     "change-username": "نام کاربری خود را تغییر دهید",
     "send-comment": "ارسال نظر",
@@ -19,5 +19,7 @@
     "submit": "ارسال",
     "this-is-page2": "این <strong>صفحه‌ی ۲</strong> است",
     "go-to-home": "<0>برو صفحه‌ی اول</0>",
-    "go-to-page2": "{{username}}، <0>اینجا</0> کلیک کن تا به صفحه‌ی ۲ بروی"
+    "go-to-page2": "{{username}}، <0>اینجا</0> کلیک کن تا به صفحه‌ی ۲ بروی",
+    "under-construction-header": "در دست ساخت",
+    "under-construction-soon": "به زودی!"
 }
