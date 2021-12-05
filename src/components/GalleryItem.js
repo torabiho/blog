@@ -29,10 +29,12 @@ export const ListViewItem = ({ post }) => {
     <li key={post._id}>
       <figure>
         <div className="list-view__meta">
-          <CloudinaryImage
-            publicId={`${post._id}/${post.headerImage}`}
-            className="gallery-item__image"
-          />
+          <Link to={`/post/${post._id}`}>
+            <CloudinaryImage
+              publicId={`${post._id}/${post.headerImage}`}
+              className="gallery-item__image"
+            />
+          </Link>
           <p className="list-view__date">
             {moment(post.postDate, "YYYY/MM/DD")
               .locale(i18n.language)
