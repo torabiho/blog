@@ -12,17 +12,17 @@ const Comments = ({ comments, postId }) => {
   const { t, i18n } = useTranslation();
   const formRef = useRef(null);
   const [commentsList, setCommentsList] = useState(comments);
-  const isMobile = useMediaQuery("(max-width: 576px)");
-  const [captchaSize, setCaptchaSize] = useState("normal");
+  const isDesktop = useMediaQuery("(min-width: 576px)");
+  const [captchaSize, setCaptchaSize] = useState("compact");
   const [author, setAuthor] = useState("");
   const [comment, setComment] = useState("");
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    if (isMobile) {
-      setCaptchaSize("compact");
+    if (isDesktop) {
+      setCaptchaSize("normal");
     }
-  }, [isMobile]);
+  }, [isDesktop]);
 
   const resetForm = () => {
     formRef.current.reset();
@@ -64,6 +64,7 @@ const Comments = ({ comments, postId }) => {
 
   return (
     <>
+      <h1 className="cm__header">{t("send-comment-header")}</h1>
       <form onSubmit={handleSubmit} className="cm__form" ref={formRef}>
         <label className="cm__author--label">
           {t("comment-author")}

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
+import { Link as ScrollLink } from "react-scroll";
 import Comments from "../components/Comments";
 import CloudinaryGallery from "../components/CloudinaryGallery";
+import ParagraphParser from "../components/ParagraphParser";
 import "./Post.scss";
 
 const Post = ({ match, i18n }) => {
@@ -38,7 +40,7 @@ const Post = ({ match, i18n }) => {
 
         {post?.content.map((item, index) => (
           <div key={index}>
-            <p className="post__paragraph">{item.paragraph}</p>
+            <ParagraphParser paragraph={item.paragraph} />
             {item.media?.length > 0 && (
               <CloudinaryGallery
                 index={index}
@@ -48,14 +50,29 @@ const Post = ({ match, i18n }) => {
             )}
           </div>
         ))}
-        <p>
-          <Trans>this-is-page2</Trans>
-        </p>
-        <p>
+        <button className="go-home">
           <Trans i18nKey="go-to-home">
             <Link to="/"></Link>
           </Trans>
-        </p>
+        </button>
+        {post?.postscripts && (
+          <div className="post_postscripts" id="postscriptsRef">
+            {post.postscripts.map((item, index) => (
+              <ScrollLink
+                key={index}
+                activeClass="current"
+                to={`postscript[${index + 1}]`}
+                offset={-200}
+                smooth={true}
+              >
+                <p key={index}>
+                  <span className="postscript">[{index + 1}]</span>{" "}
+                  {item.postscript}
+                </p>
+              </ScrollLink>
+            ))}
+          </div>
+        )}
       </div>
       {post?.comments && (
         <Comments comments={post.comments} postId={match.params.id} />

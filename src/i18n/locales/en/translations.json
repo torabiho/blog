@@ -15,8 +15,9 @@
     "welcome": "Welcome, {{username}}",
     "change-username": "Change your username:",
     "send-comment": "Send",
+    "send-comment-header": "Add a Comment",
     "submit": "Submit",
     "this-is-page2": "This is <strong>page 2</strong>",
-    "go-to-home": "Go to <0>the home page</0>",
+    "go-to-home": "<0>Go to the first page</0>",
     "go-to-page2": "Click <0>here</0> to go to page 2, {{username}}"
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Trans, withTranslation } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import axios from "axios";
 import stamp from "../images/stamp.png";
 import headerBg from "../images/headerBg.png";
@@ -7,14 +7,6 @@ import Gallery from "../components/Gallery";
 import "./Home.scss";
 
 const Home = ({ t, i18n }) => {
-  // const [username, setUsername] = useState("default user");
-  // const usernameInput = useRef(null);
-
-  // const handleClickEvent = () => {
-  //   const currentUsername = usernameInput.current;
-  //   setUsername(currentUsername.value);
-  // };
-
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
@@ -44,20 +36,6 @@ const Home = ({ t, i18n }) => {
         <img alt="stamp" src={headerBg} className="header__separator" />
       </header>
       <Gallery data={posts} />
-      {/* <p>{t("welcome", { username: username })}</p>
-
-        <div>
-          <label>{t("change-username")}</label>
-          <input type="text" ref={usernameInput} />
-          <button onClick={handleClickEvent}>{t("submit")}</button>
-        </div> */}
-
-      {/* <p>
-          <Trans i18nKey="go-to-page2">
-            <Link to="/page2"></Link>
-            {{ username }}
-          </Trans>
-        </p> */}
     </>
   );
 };

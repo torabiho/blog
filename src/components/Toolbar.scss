@@ -57,7 +57,9 @@
 }
 
 .view-options li:not(:last-child) {
-  margin-right: $large;
+  @include md {
+    margin-right: $large;
+  }
 }
 
 .view-options button {

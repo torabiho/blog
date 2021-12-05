@@ -19,7 +19,23 @@
   .post__paragraph {
     @include typewriter3;
     margin-bottom: $medium;
-    text-align: justify;
+    &:lang(fa) {
+      text-align: justify;
+    }
+  }
+
+  .postscript {
+    color: #375195;
+    cursor: pointer;
+  }
+
+  .post_postscripts {
+    border-top: 2px dotted;
+    padding-top: $medium;
+    @include typewriter5;
+    p:not(:last-child) {
+      margin-bottom: $xxxSmall;
+    }
   }
 
   .post__paragraph--gallery {
@@ -67,6 +83,23 @@
     }
     @include md {
       padding: $xxxHuge;
+    }
+  }
+
+  .go-home {
+    @include typewriter4;
+    margin-bottom: $medium;
+    color: #d94f5c;
+    border: solid 2px #d94f5c;
+    padding: $xSmall;
+    transition: all 0.5s;
+    & a {
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: #d94f5c;
+      color: white;
     }
   }
 }
