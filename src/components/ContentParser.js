@@ -12,17 +12,21 @@ const ParagraphParser = ({ text }) => {
 };
 
 const LineParser = ({ paragraph }) => {
-  const lines = paragraph.split(/\n/);
+  const lines = paragraph.match(/.+/g);
   return (
     <p className="post__paragraph">
       {lines.map((line, index) => (
-        <PostScriptParser line={line} key={index} />
+        <PostScriptParser
+          line={line}
+          key={index}
+          numberOfLines={lines.length}
+        />
       ))}
     </p>
   );
 };
 
-const PostScriptParser = ({ line }) => {
+const PostScriptParser = ({ line, numberOfLines }) => {
   const { i18n } = useTranslation();
   const chunks = line.split(/(\[[\u06F0-\u06F9|0-9]\])/g);
 
@@ -48,7 +52,7 @@ const PostScriptParser = ({ line }) => {
           chunk
         )
       )}
-      <br />
+      {numberOfLines > 1 && <br />}
     </>
   );
 };
