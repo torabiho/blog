@@ -6,25 +6,27 @@ const ParagraphParser = ({ text }) => {
   const paragraphs = text.split(/\n\n/);
 
   return paragraphs.map((paragraph, index) => (
-    <PostScriptParser key={index} paragraph={paragraph} />
+    <LineParser key={index} paragraph={paragraph} />
   ));
 };
 
-const LineParser = ({ text }) => {
-  const lines = text.split(/\n/);
-  return lines.map((line, index) => (
-    <span key={index}>
-      {line}
-      <br />
-    </span>
-  ));
-};
-
-const PostScriptParser = ({ paragraph }) => {
-  const { i18n } = useTranslation();
-  const chunks = paragraph.split(/(\[.*?\])/g);
+const LineParser = ({ paragraph }) => {
+  const lines = paragraph.split(/\n/);
   return (
     <p className="post__paragraph">
+      {lines.map((line, index) => (
+        <PostScriptParser line={line} key={index} />
+      ))}
+    </p>
+  );
+};
+
+const PostScriptParser = ({ line }) => {
+  const { i18n } = useTranslation();
+  const chunks = line.split(/(\[.*?\])/g);
+
+  return (
+    <>
       {chunks.map((chunk, index) =>
         /(\[.*?\])/.test(chunk) ? (
           <ScrollLink
@@ -42,10 +44,11 @@ const PostScriptParser = ({ paragraph }) => {
             {chunk}
           </ScrollLink>
         ) : (
-          <LineParser key={index} text={chunk} />
+          <>{chunk}</>
         )
       )}
-    </p>
+      <br />
+    </>
   );
 };
 
