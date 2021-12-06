@@ -6,7 +6,7 @@
   padding: $huge;
 
   .post__title {
-    @include typewriter1();
+    @include typewriter1;
     margin-bottom: $medium;
     color: #375195;
     &:lang(fa) {
