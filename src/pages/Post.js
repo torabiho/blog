@@ -4,8 +4,7 @@ import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
 import { Link as ScrollLink } from "react-scroll";
 import Comments from "../components/Comments";
-import CloudinaryGallery from "../components/CloudinaryGallery";
-import ParagraphParser from "../components/ParagraphParser";
+import ContentParser from "../components/ContentParser";
 import "./Post.scss";
 
 const Post = ({ match, i18n }) => {
@@ -38,15 +37,7 @@ const Post = ({ match, i18n }) => {
         <div className="post__paper">
           <h1 className="post__title">{post.title}</h1>
           <h2 className="post__subtitle hamburger-trigger">{post.subtitle}</h2>
-          <ParagraphParser text={post.content?.main} />
-          {/* {post?.content?.media?.length > 0 && (
-              <CloudinaryGallery
-                index={index}
-                media={item.media}
-                postId={post._id}
-              />
-            )} */}
-
+          <ContentParser text={post.content?.main} postId={post._id} />
           <button className="go-home">
             <Trans i18nKey="go-to-home">
               <Link to="/"></Link>

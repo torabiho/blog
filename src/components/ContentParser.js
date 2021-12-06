@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link as ScrollLink } from "react-scroll";
+import CloudinaryGallery from "./CloudinaryGallery";
 import { convertNumbers2English } from "../helpers";
 
 const ParagraphParser = ({ text }) => {
@@ -23,12 +24,12 @@ const LineParser = ({ paragraph }) => {
 
 const PostScriptParser = ({ line }) => {
   const { i18n } = useTranslation();
-  const chunks = line.split(/(\[.*?\])/g);
+  const chunks = line.split(/(\[[\u06F0-\u06F9|0-9]\])/g);
 
   return (
     <>
       {chunks.map((chunk, index) =>
-        /(\[.*?\])/.test(chunk) ? (
+        /(\[[\u06F0-\u06F9|0-9]\])/.test(chunk) ? (
           <ScrollLink
             key={index}
             className="postscript"
@@ -44,7 +45,7 @@ const PostScriptParser = ({ line }) => {
             {chunk}
           </ScrollLink>
         ) : (
-          <>{chunk}</>
+          chunk
         )
       )}
       <br />
@@ -52,4 +53,21 @@ const PostScriptParser = ({ line }) => {
   );
 };
 
-export default ParagraphParser;
+const ContentParser = ({ text, postId }) => {
+  const chunks = text.split(/(\[\w.*?\])/g);
+
+  return chunks.map((chunk, index) =>
+    /(\[\w.*?\])/.test(chunk) ? (
+      <CloudinaryGallery
+        key={index}
+        index={index}
+        media={chunk.slice(1, -1).split(",")}
+        postId={postId}
+      />
+    ) : (
+      <ParagraphParser text={chunk} key={index} />
+    )
+  );
+};
+
+export default ContentParser;
