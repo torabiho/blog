@@ -3,7 +3,7 @@
 @import "../constants/fonts";
 
 .construction__wrapper {
-  @include typewriter1;
+  @include typewriter2;
   position: absolute;
   left: 0;
   right: 0;
@@ -20,4 +20,8 @@
   margin: auto;
   height: fit-content;
   padding: $xLarge;
+
+  @include md {
+    @include typewriter1;
+  }
 }

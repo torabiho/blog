@@ -6,13 +6,16 @@
   padding: $huge;
 
   .post__title {
-    @include typewriter1;
+    @include typewriter1();
     margin-bottom: $medium;
     color: #375195;
+    &:lang(fa) {
+      font-size: 64px;
+    }
   }
 
   .post__subtitle {
-    @include typewriter2;
+    @include typewriter2(normal, bold);
     margin-bottom: $medium;
   }
 
@@ -88,14 +91,13 @@
 
   .go-home {
     @include typewriter4;
+    display: inline-block;
     margin-bottom: $medium;
     color: #d94f5c;
     border: solid 2px #d94f5c;
     padding: $xSmall;
     transition: all 0.5s;
-    & a {
-      text-decoration: none;
-    }
+    text-decoration: none;
 
     &:hover {
       background-color: #d94f5c;

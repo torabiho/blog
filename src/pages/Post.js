@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
-import { Link as ScrollLink } from "react-scroll";
 import Comments from "../components/Comments";
 import ContentParser from "../components/ContentParser";
+import Postscripts from "../components/Postscripts";
 import "./Post.scss";
 
 const Post = ({ match, i18n }) => {
@@ -37,29 +37,14 @@ const Post = ({ match, i18n }) => {
         <div className="post__paper">
           <h1 className="post__title">{post.title}</h1>
           <h2 className="post__subtitle hamburger-trigger">{post.subtitle}</h2>
-          <ContentParser text={post.content?.main} postId={post._id} />
-          <button className="go-home">
-            <Trans i18nKey="go-to-home">
-              <Link to="/"></Link>
-            </Trans>
-          </button>
-          {post?.postscripts && (
-            <div className="post_postscripts" id="postscriptsRef">
-              {post.postscripts.map((item, index) => (
-                <ScrollLink
-                  key={index}
-                  activeClass="current"
-                  to={`postscript[${index + 1}]`}
-                  offset={-200}
-                  smooth={true}
-                >
-                  <p key={index}>
-                    <span className="postscript">[{index + 1}]</span>{" "}
-                    {item.postscript}
-                  </p>
-                </ScrollLink>
-              ))}
-            </div>
+          <ContentParser content={post.content} postId={post._id} />
+
+          <Trans i18nKey="go-to-home">
+            <Link className="go-home" to="/"></Link>
+          </Trans>
+
+          {post?.postscriptsList?.length > 0 && (
+            <Postscripts postscripts={post.postscriptsList} />
           )}
         </div>
         {post?.comments && (

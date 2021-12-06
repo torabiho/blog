@@ -60,9 +60,9 @@
 
 /*************************************/
 
-@mixin typewriter1() {
+@mixin typewriter1($fontStyle: normal, $fontWeight: 400) {
   &:lang(fa) {
-    @include typewriter(normal, normal);
+    @include typewriter($fontStyle, $fontWeight);
     font-size: 48px;
   }
 
@@ -72,14 +72,14 @@
   }
 }
 
-@mixin typewriter2() {
+@mixin typewriter2($fontStyle: normal, $fontWeight: 400) {
   &:lang(fa) {
-    @include typewriter(normal, normal);
+    @include typewriter($fontStyle, $fontWeight);
     font-size: 32px;
   }
 
   &:not(:lang(fa)) {
-    @include typewriter(normal, normal);
+    @include typewriter($fontStyle, $fontWeight);
     font-size: 22px;
   }
 }

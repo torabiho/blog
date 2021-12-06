@@ -4,6 +4,23 @@ import { Link as ScrollLink } from "react-scroll";
 import CloudinaryGallery from "./CloudinaryGallery";
 import { convertNumbers2English } from "../helpers";
 
+const ContentParser = ({ content, postId }) => {
+  const chunks = content.split(/(\[\w.*?\])/g);
+
+  return chunks.map((chunk, index) =>
+    /(\[\w.*?\])/.test(chunk) ? (
+      <CloudinaryGallery
+        key={index}
+        index={index}
+        media={chunk.slice(1, -1).split(",")}
+        postId={postId}
+      />
+    ) : (
+      <ParagraphParser text={chunk} key={index} />
+    )
+  );
+};
+
 const ParagraphParser = ({ text }) => {
   const paragraphs = text.split(/\n\n/);
 
@@ -52,23 +69,6 @@ const PostScriptParser = ({ line }) => {
       </ScrollLink>
     ) : (
       chunk
-    )
-  );
-};
-
-const ContentParser = ({ text, postId }) => {
-  const chunks = text.split(/(\[\w.*?\])/g);
-
-  return chunks.map((chunk, index) =>
-    /(\[\w.*?\])/.test(chunk) ? (
-      <CloudinaryGallery
-        key={index}
-        index={index}
-        media={chunk.slice(1, -1).split(",")}
-        postId={postId}
-      />
-    ) : (
-      <ParagraphParser text={chunk} key={index} />
     )
   );
 };

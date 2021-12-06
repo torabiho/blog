@@ -4,9 +4,10 @@ import "./Gallery.scss";
 import { GridViewItem, ListViewItem } from "./GalleryItem";
 
 const gridView = "gridView";
+const listView = "listView";
 
 const Gallery = ({ data }) => {
-  const [view, setView] = useState(gridView);
+  const [view, setView] = useState(listView);
   const [filter, setFilter] = useState("");
 
   const switchView = (newView) => {
