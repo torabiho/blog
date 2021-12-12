@@ -1,0 +1,15 @@
+@import "../constants/mixins";
+@import "../constants/spaces";
+@import "../constants/fonts";
+
+.page-title {
+  @include typewriter2(normal, bold);
+  padding: 0 $huge;
+  margin-top: $huge;
+  text-align: center;
+  color: #d94f5c;
+
+  @include md {
+    display: none;
+  }
+}

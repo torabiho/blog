@@ -64,11 +64,13 @@
   &:lang(fa) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 48px;
+    line-height: 48px;
   }
 
   &:not(:lang(fa)) {
     @include typewriter(normal, bold);
     font-size: 28px;
+    line-height: 28px;
   }
 }
 
@@ -76,11 +78,13 @@
   &:lang(fa) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 32px;
+    line-height: 32px;
   }
 
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 22px;
+    line-height: 22px;
   }
 }
 
@@ -88,11 +92,13 @@
   &:lang(fa) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 28px;
+    line-height: 28px;
   }
 
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 18px;
+    line-height: 18px;
   }
 }
 
@@ -100,11 +106,13 @@
   &:lang(fa) {
     @include typewriter();
     font-size: 24px;
+    line-height: 24px;
   }
 
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 14px;
+    line-height: 14px;
   }
 }
 
@@ -112,11 +120,13 @@
   &:lang(fa) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 20px;
+    line-height: 20px;
   }
 
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 12px;
+    line-height: 12px;
   }
 }
 

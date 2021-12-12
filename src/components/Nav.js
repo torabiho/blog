@@ -3,15 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "./LanguageSwitch";
 import HamburgerMenu from "./HamburgerMenu";
+import { navItems } from "../constants/constants";
 import "./Nav.scss";
-
-const menuItems = [
-  { title: "nav-first-page", link: "/" },
-  { title: "nav-short-stories", link: "/short-stories" },
-  { title: "nav-library", link: "/library" },
-  { title: "nav-movie-club", link: "/movie-club" },
-  { title: "nav-etc", link: "/etc" },
-];
 
 const Nav = () => {
   const { t } = useTranslation();
@@ -30,15 +23,15 @@ const Nav = () => {
           onExpand={() => setExpanded((prevState) => !prevState)}
         />
         <ul className="menu__list">
-          {menuItems.map((item, index) => (
+          {navItems.map((item, index) => (
             <li
               key={index}
               className={`menu__item ${
-                pathname === item.link && "menu__item--current"
+                pathname === item.pathname && "menu__item--current"
               }`}
             >
-              <Link to={item.link} className="menu__link">
-                {t(item.title)}
+              <Link className="menu__link" to={item}>
+                {t(item.state.title)}
               </Link>
             </li>
           ))}
