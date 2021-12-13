@@ -41,7 +41,8 @@
 
     .gallery-item__image {
       width: 100%;
-      max-height: 213px;
+      height: 213px;
+      object-fit: cover;
     }
 
     figure {
