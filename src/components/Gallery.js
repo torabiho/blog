@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import Toolbar from "./Toolbar";
 import "./Gallery.scss";
 import { GridViewItem, ListViewItem } from "./GalleryItem";
+import UnderConstruction from "../pages/UnderConstruction";
 
 const gridView = "gridView";
 const listView = "listView";
@@ -29,29 +30,37 @@ const Gallery = ({ data }) => {
   );
 
   return (
-    <section className="gallery hamburger-trigger">
-      <div className="container">
-        <Toolbar
-          view={view}
-          onHandleSearch={handleSearch}
-          onSwitchView={switchView}
-          total={filteredPosts.length}
-        />
-        <ol
-          className={`image-list ${
-            view === gridView ? "grid-view" : "list-view"
-          }`}
-        >
-          {filteredPosts.map((post) =>
-            view === gridView ? (
-              <GridViewItem post={post} key={post._id} />
-            ) : (
-              <ListViewItem post={post} key={post._id} />
-            )
+    data && (
+      <section className="gallery hamburger-trigger">
+        <div className="container">
+          {filteredPosts.length === 0 ? (
+            <UnderConstruction />
+          ) : (
+            <>
+              <Toolbar
+                view={view}
+                onHandleSearch={handleSearch}
+                onSwitchView={switchView}
+                total={filteredPosts.length}
+              />
+              <ol
+                className={`image-list ${
+                  view === gridView ? "grid-view" : "list-view"
+                }`}
+              >
+                {filteredPosts.map((post) =>
+                  view === gridView ? (
+                    <GridViewItem post={post} key={post._id} />
+                  ) : (
+                    <ListViewItem post={post} key={post._id} />
+                  )
+                )}
+              </ol>
+            </>
           )}
-        </ol>
-      </div>
-    </section>
+        </div>
+      </section>
+    )
   );
 };
 
