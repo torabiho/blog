@@ -33,7 +33,7 @@ const Gallery = ({ data }) => {
     data && (
       <section className="gallery hamburger-trigger">
         <div className="container">
-          {filteredPosts.length === 0 ? (
+          {data.length === 0 ? (
             <UnderConstruction />
           ) : (
             <>
