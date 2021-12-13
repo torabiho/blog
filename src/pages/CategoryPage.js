@@ -35,7 +35,7 @@ const CategoryPage = ({ location }) => {
   return (
     <>
       <div className="page-title">{t(title)}</div>
-      <Gallery data={posts} />
+      {posts && <Gallery data={posts} />}
     </>
   );
 };

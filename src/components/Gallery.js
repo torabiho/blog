@@ -30,37 +30,35 @@ const Gallery = ({ data }) => {
   );
 
   return (
-    data && (
-      <section className="gallery hamburger-trigger">
-        <div className="container">
-          {data.length === 0 ? (
-            <UnderConstruction />
-          ) : (
-            <>
-              <Toolbar
-                view={view}
-                onHandleSearch={handleSearch}
-                onSwitchView={switchView}
-                total={filteredPosts.length}
-              />
-              <ol
-                className={`image-list ${
-                  view === gridView ? "grid-view" : "list-view"
-                }`}
-              >
-                {filteredPosts.map((post) =>
-                  view === gridView ? (
-                    <GridViewItem post={post} key={post._id} />
-                  ) : (
-                    <ListViewItem post={post} key={post._id} />
-                  )
-                )}
-              </ol>
-            </>
-          )}
-        </div>
-      </section>
-    )
+    <section className="gallery hamburger-trigger">
+      <div className="container">
+        {data?.length === 0 ? (
+          <UnderConstruction />
+        ) : (
+          <>
+            <Toolbar
+              view={view}
+              onHandleSearch={handleSearch}
+              onSwitchView={switchView}
+              total={filteredPosts.length}
+            />
+            <ol
+              className={`image-list ${
+                view === gridView ? "grid-view" : "list-view"
+              }`}
+            >
+              {filteredPosts.map((post) =>
+                view === gridView ? (
+                  <GridViewItem post={post} key={post._id} />
+                ) : (
+                  <ListViewItem post={post} key={post._id} />
+                )
+              )}
+            </ol>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 
