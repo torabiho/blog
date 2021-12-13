@@ -37,7 +37,11 @@ const Post = ({ match, i18n }) => {
         <div className="post__paper">
           <h1 className="post__title">{post.title}</h1>
           <h2 className="post__subtitle hamburger-trigger">{post.subtitle}</h2>
-          <ContentParser content={post.content} postId={post._id} />
+          <ContentParser
+            content={post.content}
+            postId={post._id}
+            mediaDescription={post.mediaDescription}
+          />
 
           <Trans i18nKey="go-to-home">
             <Link className="go-home" to="/"></Link>

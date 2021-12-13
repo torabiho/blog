@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import CloudinaryGallery from "./CloudinaryGallery";
 import { convertNumbers2English } from "../helpers";
 
-const ContentParser = ({ content, postId }) => {
+const ContentParser = ({ content, postId, mediaDescription }) => {
   const chunks = content.split(/(\[\w.*?\])/g);
 
   return chunks.map((chunk, index) =>
@@ -13,6 +13,7 @@ const ContentParser = ({ content, postId }) => {
         key={index}
         index={index}
         media={chunk.slice(1, -1).split(",")}
+        mediaDescription={mediaDescription}
         postId={postId}
       />
     ) : (

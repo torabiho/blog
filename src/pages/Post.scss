@@ -49,6 +49,11 @@
     }
   }
 
+  .post__paragraph--media-description {
+    margin-bottom: $small;
+    text-align: center;
+  }
+
   .post__paper {
     @include sm {
       background: #fafafa;
