@@ -20,7 +20,6 @@ const CloudinaryMedia = ({ media, index, postId, mediaDescription }) => {
       {images.length === 1 ? (
         <CloudinaryImage
           publicId={`${postId}/${images[0]}`}
-          className="post__media-gallery"
           mediaCaption={mediaDescription[images[0]]}
         />
       ) : (
@@ -34,12 +33,14 @@ const CloudinaryMedia = ({ media, index, postId, mediaDescription }) => {
         )
       )}
       {files.length > 0 && (
-        <div className="post__pdf--gallery">
+        <div
+          className="post__file--gallery"
+          style={{ maxWidth: `${Math.min(1200, files.length * 200)}px` }}
+        >
           {files.map((file, index) => (
             <CloudinaryPdf
               key={index}
               publicId={`${postId}/${file}`}
-              className="post__media-gallery"
               mediaCaption={mediaDescription[file.replace(".pdf", "")]}
             />
           ))}

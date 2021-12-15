@@ -41,26 +41,6 @@
     }
   }
 
-  .post__media-gallery {
-    margin: 0 auto $large;
-    direction: ltr;
-    @include sm {
-      max-width: 80%;
-    }
-  }
-
-  .post__pdf--gallery {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin: $large 0;
-  }
-
-  .post__media-caption {
-    margin-bottom: $small;
-    text-align: center;
-  }
-
   .post__paper {
     @include sm {
       background: #fafafa;
@@ -104,7 +84,7 @@
   .go-home {
     @include typewriter4;
     display: inline-block;
-    margin-bottom: $medium;
+    margin-bottom: $xLarge;
     color: #d94f5c;
     border: solid 2px #d94f5c;
     padding: $xSmall;

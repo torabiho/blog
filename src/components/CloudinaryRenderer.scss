@@ -1,0 +1,44 @@
+@import "../constants/mixins";
+@import "../constants/spaces";
+@import "../constants/fonts";
+
+.post__file--gallery {
+  margin: 0 auto $large;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  .post__file-container {
+    text-decoration: none;
+    .post__file__image {
+      margin: 0 auto;
+      direction: ltr;
+      @include sm {
+        max-width: 80%;
+      }
+    }
+    .post__file-caption {
+      @include typewriter5;
+      margin-top: $small;
+      text-align: center;
+      outline: none;
+    }
+  }
+}
+
+.post__single-image__container {
+  margin-bottom: $large;
+  .post__single-image {
+    margin: 0 auto;
+    direction: ltr;
+    @include sm {
+      max-width: 80%;
+    }
+  }
+
+  .post__single-image__caption {
+    @include typewriter5;
+    margin-top: $small;
+    text-align: center;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { cloudName } from "./CloudinaryRenderer";
+import "./CloudinaryImageSlides.scss";
 
 const CloudinaryImageSlides = ({ images, captions, postId, index }) => {
   const cloudnaryGalleryRef = useRef(null);
@@ -43,10 +44,9 @@ const CloudinaryImageSlides = ({ images, captions, postId, index }) => {
   }, [index, postId, images, setCaption]);
 
   return (
-    <>
-      <div id={`media${index}`} className="post__media-gallery"></div>
+    <div id={`media${index}`} className="post__media-gallery">
       <p className="post__media-caption">{imageCaption}</p>
-    </>
+    </div>
   );
 };
 
