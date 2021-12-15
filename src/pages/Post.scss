@@ -49,6 +49,12 @@
     }
   }
 
+  .post__pdf--gallery {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
   .post__paragraph--media-description {
     margin-bottom: $small;
     text-align: center;

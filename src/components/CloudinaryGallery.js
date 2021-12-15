@@ -1,9 +1,27 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { CloudinaryImage, cloudName } from "./CloudinaryImage";
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+} from "react";
+import { CloudinaryImage, cloudName, CloudinaryPdf } from "./CloudinaryImage";
 
 const CloudinaryGallery = ({ media, index, postId, mediaDescription }) => {
+  const [files, images] = useMemo(
+    () =>
+      media.reduce(
+        (result, element) => {
+          result[element.endsWith(".pdf") ? 0 : 1].push(element);
+          return result;
+        },
+        [[], []]
+      ),
+    [media]
+  );
+
   const cloudnaryGalleryRef = useRef(null);
-  const [mediaCaption, setMediaCaption] = useState(mediaDescription[media[0]]);
+  const [mediaCaption, setMediaCaption] = useState(mediaDescription[images[0]]);
 
   const setCaption = useCallback(
     (label) => {
@@ -17,13 +35,13 @@ const CloudinaryGallery = ({ media, index, postId, mediaDescription }) => {
   );
 
   useEffect(() => {
-    if (media.length > 1) {
+    if (images.length > 1) {
       const paragraphMeida = window.cloudinary.galleryWidget({
         container: `#media${index}`,
         cloudName: cloudName,
         themeProps: { active: "#d94f5c" },
         transition: "fade",
-        mediaAssets: media.map((element) => ({
+        mediaAssets: images.map((element) => ({
           publicId: `blog/${postId}/${element}`,
         })),
       });
@@ -42,19 +60,35 @@ const CloudinaryGallery = ({ media, index, postId, mediaDescription }) => {
         cloudnaryGalleryRef.current = paragraphMeida.destroy();
       };
     }
-  }, [index, media, postId, setCaption]);
+  }, [index, postId, images, setCaption]);
 
   return (
     <>
-      {media.length === 1 ? (
+      {images.length === 1 && (
         <CloudinaryImage
-          publicId={`${postId}/${media[0]}`}
+          publicId={`${postId}/${images[0]}`}
           className="post__paragraph--gallery"
+          mediaCaption={mediaCaption}
         />
-      ) : (
-        <div id={`media${index}`} className="post__paragraph--gallery"></div>
       )}
-      <p className="post__paragraph--media-description">{mediaCaption}</p>
+      {images.length > 1 && (
+        <>
+          <div id={`media${index}`} className="post__paragraph--gallery"></div>
+          <p className="post__paragraph--media-description">{mediaCaption}</p>
+        </>
+      )}
+      {files.length > 0 && (
+        <div className="post__pdf--gallery">
+          {files.map((file, index) => (
+            <CloudinaryPdf
+              key={index}
+              publicId={`${postId}/${file}`}
+              className="post__paragraph--gallery"
+              mediaCaption={mediaDescription[file.replace(".pdf", "")]}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };
