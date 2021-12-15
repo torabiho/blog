@@ -41,7 +41,7 @@
     }
   }
 
-  .post__paragraph--gallery {
+  .post__media-gallery {
     margin: 0 auto $large;
     direction: ltr;
     @include sm {
@@ -55,7 +55,7 @@
     flex-wrap: wrap;
   }
 
-  .post__paragraph--media-description {
+  .post__media-caption {
     margin-bottom: $small;
     text-align: center;
   }

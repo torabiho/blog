@@ -11,7 +11,7 @@ export const CloudinaryImage = ({ publicId, className, mediaCaption }) => (
     >
       <Image publicId={`blog/${publicId}`} className={className} />
     </CloudinaryContext>
-    <p className="post__paragraph--media-description">{mediaCaption}</p>
+    <p className="post__media-caption">{mediaCaption}</p>
   </>
 );
 
@@ -34,6 +34,6 @@ export const CloudinaryPdf = ({ publicId, className, mediaCaption }) => (
         </Image>
       </CloudinaryContext>
     </a>
-    <p className="post__paragraph--media-description">{mediaCaption}</p>
+    <p className="post__media-caption">{mediaCaption}</p>
   </div>
 );

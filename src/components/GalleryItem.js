@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CloudinaryImage } from "./CloudinaryImage";
+import { CloudinaryImage } from "./CloudinaryRenderer";
 import { useTranslation } from "react-i18next";
 import moment from "jalali-moment";
 import "./GalleryItem.scss";
