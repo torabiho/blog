@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { CloudinaryImage, CloudinaryPdf } from "./CloudinaryRenderer";
 import CloudinaryImageSlides from "./CloudinaryImageSlides";
 
-const CloudinaryMedia = ({ media, index, postId, mediaDescription }) => {
+const PostMedia = ({ media, index, postId, mediaDescription }) => {
   const [files, images] = useMemo(
     () =>
       media.reduce(
@@ -51,4 +51,4 @@ const CloudinaryMedia = ({ media, index, postId, mediaDescription }) => {
     </>
   );
 };
-export default CloudinaryMedia;
+export default PostMedia;

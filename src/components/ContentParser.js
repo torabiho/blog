@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as ScrollLink } from "react-scroll";
-import CloudinaryMedia from "./CloudinaryMedia";
+import PostMedia from "./PostMedia";
 import { convertNumbers2English } from "../helpers";
 
 const ContentParser = ({ content, postId, mediaDescription }) => {
@@ -9,7 +9,7 @@ const ContentParser = ({ content, postId, mediaDescription }) => {
 
   return chunks.map((chunk, index) =>
     /(\[\w.*?\])/.test(chunk) ? (
-      <CloudinaryMedia
+      <PostMedia
         key={index}
         index={index}
         media={chunk.slice(1, -1).split(",")}

@@ -25,7 +25,7 @@ export const CloudinaryPdf = ({ publicId, mediaCaption }) => (
         className="post__file__image"
         publicId={`blog/${publicId.replace(".pdf", ".jpg")}`}
       >
-        <Transformation width="150" crop="scale" />
+        <Transformation width="150" crop="scale" density="300" />
       </Image>
     </CloudinaryContext>
     <p className="post__file-caption">{mediaCaption}</p>
