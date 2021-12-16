@@ -86,11 +86,16 @@
       width: 100%;
     }
     .list-view__date {
-      margin-top: $small;
+      margin: $small 0;
       @include typewriter5;
     }
     .list-view__title {
-      @include typewriter3(normal, bold);
+      &:lang(fa) {
+        @include typewriter2(normal, bold);
+      }
+      &:not(:lang(fa)) {
+        @include typewriter3(normal, bold);
+      }
       color: #375195;
       text-decoration: none;
     }
@@ -98,6 +103,21 @@
     .list-view__paragraph {
       margin-top: $xSmall;
       @include typewriter4;
+
+      a {
+        position: relative;
+        color: #375195;
+        text-decoration: none;
+        &:after {
+          content: "";
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 1px;
+          border-width: 0 0 1px;
+          border-style: dotted;
+        }
+      }
     }
   }
 }
