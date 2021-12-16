@@ -31,9 +31,9 @@
   .post__single-image {
     margin: 0 auto;
     direction: ltr;
-    @include sm {
-      max-width: 80%;
-    }
+    // @include sm {
+    //   max-width: 80%;
+    // }
   }
 
   .post__single-image__caption {

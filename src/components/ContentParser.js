@@ -69,9 +69,50 @@ const PostScriptParser = ({ line }) => {
         {chunk}
       </ScrollLink>
     ) : (
-      chunk
+      <IFrameParser text={chunk} key={index} />
     )
   );
+};
+
+const IFrameParser = ({ text }) => {
+  const chunks = text.split(/(<iframe.*?iframe>)/g);
+
+  return chunks.map((chunk, index) => {
+    if (/(<iframe.*?iframe>)/.test(chunk)) {
+      return (
+        <span
+          className="post_iframe"
+          key={index}
+          dangerouslySetInnerHTML={{ __html: chunk }}
+        />
+      );
+    }
+
+    return <LinkParser text={chunk} key={index} />;
+  });
+};
+
+const LinkParser = ({ text }) => {
+  const chunks = text.split(/(<.*?>)/g);
+
+  return chunks.map((chunk, index) => {
+    if (/(<.*?>)/.test(chunk)) {
+      const [address, tag] = chunk.slice(1, -1).split("|");
+      return (
+        <a
+          href={address}
+          className="post__link"
+          target="_blank"
+          rel="noreferrer"
+          key={index}
+        >
+          {tag}
+        </a>
+      );
+    } else {
+      return chunk;
+    }
+  });
 };
 
 export default ContentParser;

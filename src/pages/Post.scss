@@ -27,6 +27,26 @@
     }
   }
 
+  .post_iframe {
+    display: flex;
+    justify-content: center;
+  }
+
+  .post__link {
+    position: relative;
+    color: #375195;
+    text-decoration: none;
+    &:after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      border-width: 0 0 1px;
+      border-style: dotted;
+    }
+  }
+
   .postscript {
     color: #375195;
     cursor: pointer;

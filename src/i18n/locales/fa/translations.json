@@ -15,10 +15,10 @@
     "welcome": "خوش آمدی {{username}}",
     "change-username": "نام کاربری خود را تغییر دهید",
     "send-comment": "ارسال نظر",
-    "send-comment-header": "نظر دهید",
+    "send-comment-header": "نظر شما",
     "submit": "ارسال",
     "this-is-page2": "این <strong>صفحه‌ی ۲</strong> است",
-    "go-to-home": "<0>برو صفحه‌ی اول</0>",
+    "go-to-home": "<0>صفحه‌ی اول</0>",
     "go-to-page2": "{{username}}، <0>اینجا</0> کلیک کن تا به صفحه‌ی ۲ بروی",
     "under-construction-header": "در دست ساخت",
     "under-construction-soon": "به زودی!"

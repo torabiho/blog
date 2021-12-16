@@ -46,7 +46,11 @@ export const ListViewItem = ({ post }) => {
             {post.title}
           </Link>
           <p className="list-view__paragraph">
-            {post.content.split(" ").slice(0, 75).join(" ") + " ... "}
+            {post.content
+              .replace(/(<.*?>|\[.*?\])/g, "")
+              .split(" ")
+              .slice(0, 75)
+              .join(" ") + " ... "}
             <Link to={`/post/${post._id}`}>
               <span>{t("continue")}</span>
             </Link>
