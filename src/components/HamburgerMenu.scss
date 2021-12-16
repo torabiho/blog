@@ -7,8 +7,8 @@
   width: 40px;
   height: 44px;
   position: absolute;
-  top: 35px;
-  left: 43px;
+  top: 28px;
+  left: 42px;
 
   @include md {
     display: none;
@@ -17,6 +17,15 @@
   &:lang(fa) {
     left: unset;
     right: 42px;
+  }
+
+  &:checked {
+    &:not(:lang(fa)) {
+      left: 56px;
+    }
+    &:lang(fa) {
+      right: 62px;
+    }
   }
 
   cursor: pointer;
