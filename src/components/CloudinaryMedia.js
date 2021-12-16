@@ -18,10 +18,12 @@ const CloudinaryMedia = ({ media, index, postId, mediaDescription }) => {
   return (
     <>
       {images.length === 1 ? (
-        <CloudinaryImage
-          publicId={`${postId}/${images[0]}`}
-          mediaCaption={mediaDescription[images[0]]}
-        />
+        <div className="post__single-image__container">
+          <CloudinaryImage publicId={`${postId}/${images[0]}`} />
+          <p className="post__single-image__caption">
+            {mediaDescription[images[0]]}
+          </p>
+        </div>
       ) : (
         images.length > 1 && (
           <CloudinaryImageSlides
