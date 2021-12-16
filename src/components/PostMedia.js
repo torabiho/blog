@@ -20,9 +20,11 @@ const PostMedia = ({ media, index, postId, mediaDescription }) => {
       {images.length === 1 ? (
         <div className="post__single-image__container">
           <CloudinaryImage publicId={`${postId}/${images[0]}`} />
-          <p className="post__single-image__caption">
-            {mediaDescription[images[0]]}
-          </p>
+          {mediaDescription && (
+            <p className="post__single-image__caption">
+              {mediaDescription[images[0]]}
+            </p>
+          )}
         </div>
       ) : (
         images.length > 1 && (
@@ -43,7 +45,9 @@ const PostMedia = ({ media, index, postId, mediaDescription }) => {
             <CloudinaryPdf
               key={index}
               publicId={`${postId}/${file}`}
-              mediaCaption={mediaDescription[file.replace(".pdf", "")]}
+              mediaCaption={
+                mediaDescription && mediaDescription[file.replace(".pdf", "")]
+              }
             />
           ))}
         </div>

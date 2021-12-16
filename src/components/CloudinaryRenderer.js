@@ -28,6 +28,6 @@ export const CloudinaryPdf = ({ publicId, mediaCaption }) => (
         <Transformation width="150" crop="scale" density="300" />
       </Image>
     </CloudinaryContext>
-    <p className="post__file-caption">{mediaCaption}</p>
+    {mediaCaption && <p className="post__file-caption">{mediaCaption}</p>}
   </a>
 );

@@ -32,19 +32,22 @@ const ParagraphParser = ({ text }) => {
 
 const LineParser = ({ paragraph }) => {
   const lines = paragraph.match(/.+/g);
+
   return (
-    <p className="post__paragraph">
-      {lines.length > 1 ? (
-        lines.map((line, index) => (
-          <React.Fragment key={index}>
-            <PostScriptParser line={line} key={index} />
-            <br />
-          </React.Fragment>
-        ))
-      ) : (
-        <PostScriptParser line={lines[0]} />
-      )}
-    </p>
+    lines && (
+      <p className="post__paragraph">
+        {lines.length > 1 ? (
+          lines.map((line, index) => (
+            <React.Fragment key={index}>
+              <PostScriptParser line={line} key={index} />
+              <br />
+            </React.Fragment>
+          ))
+        ) : (
+          <PostScriptParser line={lines[0]} />
+        )}
+      </p>
+    )
   );
 };
 
