@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import { Switch, Route } from "react-router-dom";
-import RouteChangeTracker from "./components/RouteChangeTracker";
 import Nav from "./components/Nav";
 import "./App.scss";
 import Home from "./pages/Home";
@@ -26,7 +25,6 @@ const App = () => {
           component={CategoryPage}
         />
       </Switch>
-      <RouteChangeTracker />
     </div>
   );
 };

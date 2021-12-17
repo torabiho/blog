@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ReactGA from "react-ga";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "./LanguageSwitch";
 import HamburgerMenu from "./HamburgerMenu";
@@ -12,6 +13,8 @@ const Nav = () => {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
+    ReactGA.set({ page: pathname });
+    ReactGA.pageview(pathname);
     setExpanded(false);
   }, [pathname]);
   return (
