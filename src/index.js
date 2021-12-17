@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
+import ReactGA from "react-ga";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./i18n/config";
@@ -12,6 +13,8 @@ ReactDOM.render(
   </HashRouter>,
   document.getElementById("root")
 );
+
+ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

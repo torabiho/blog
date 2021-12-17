@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
 import Comments from "../components/Comments";
@@ -23,6 +24,15 @@ const Post = ({ match, i18n }) => {
           }
         );
         setPost(result.data);
+        ReactGA.event({
+          category: "post",
+          action: "Visited post",
+          value: {
+            postId: result?.data?._id,
+            postTitle: result?.data?.title,
+            language: i18n.language,
+          },
+        });
       } catch (error) {
         console.log(error);
       }

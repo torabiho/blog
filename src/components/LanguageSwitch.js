@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import ReactGA from "react-ga";
 import "./LanguageSwitch.scss";
 
 const alternateLanguage = (lang) => {
@@ -12,6 +13,11 @@ const LanguageSwitch = () => {
     const newLang = alternateLanguage(i18n.language);
     i18n.changeLanguage(newLang);
     document.documentElement.lang = newLang;
+    ReactGA.event({
+      category: "localization",
+      action: "Switched language",
+      value: newLang,
+    });
   };
   return (
     <div className="language-switch">
