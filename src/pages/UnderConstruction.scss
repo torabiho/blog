@@ -3,7 +3,6 @@
 @import "../constants/fonts";
 
 .construction__wrapper {
-  @include typewriter2;
   position: absolute;
   left: 0;
   right: 0;
@@ -16,12 +15,27 @@
   transform: rotate(-25deg);
   color: #d94f5c;
   border: solid 6px #d94f5c;
-  width: fit-content;
+  width: 280px;
   margin: auto;
-  height: fit-content;
-  padding: $xLarge;
+  height: 120px;
 
-  @include md {
-    @include typewriter1;
+  &:lang(fa) {
+    h2 {
+      @include typewriter1;
+    }
+
+    h3 {
+      @include typewriter2;
+    }
+  }
+
+  &:not(:lang(fa)) {
+    h2 {
+      @include typewriter2;
+    }
+
+    h3 {
+      @include typewriter3;
+    }
   }
 }

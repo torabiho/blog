@@ -5,10 +5,10 @@ import PostMedia from "./PostMedia";
 import { convertNumbers2English } from "../helpers";
 
 const ContentParser = ({ content, postId, mediaDescription }) => {
-  const chunks = content.split(/(\[\w.*?\])/g);
+  const chunks = content.split(/(\[[a-z].*?\])/gim);
 
   return chunks.map((chunk, index) =>
-    /(\[\w.*?\])/.test(chunk) ? (
+    /\[[a-z].*?\]/i.test(chunk) ? (
       <PostMedia
         key={index}
         index={index}

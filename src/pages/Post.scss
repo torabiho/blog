@@ -56,8 +56,16 @@
     border-top: 2px dotted;
     padding-top: $medium;
     @include typewriter5;
+    a.postscript {
+      &:lang(fa) {
+        margin-left: $xxSmall;
+      }
+      &:not(:lang(fa)) {
+        margin-right: $xxSmall;
+      }
+    }
     p:not(:last-child) {
-      margin-bottom: $xxxSmall;
+      margin-bottom: $xxSmall;
     }
   }
 
