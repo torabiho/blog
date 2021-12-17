@@ -16,7 +16,7 @@ const LanguageSwitch = () => {
     ReactGA.event({
       category: "localization",
       action: "Switched language",
-      value: newLang,
+      label: `Language: ${newLang}`,
     });
   };
   return (
