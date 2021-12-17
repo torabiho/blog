@@ -28,7 +28,6 @@ const Post = ({ match, i18n }) => {
           category: "post",
           action: "Visited post",
           label: `Language: ${i18n.language}`,
-          value: result.data._id,
         });
       } catch (error) {
         console.log(error);
