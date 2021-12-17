@@ -98,7 +98,7 @@
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 18px;
-    line-height: 18px;
+    line-height: 26px;
   }
 }
 
@@ -112,7 +112,7 @@
   &:not(:lang(fa)) {
     @include typewriter($fontStyle, $fontWeight);
     font-size: 14px;
-    line-height: 14px;
+    line-height: 20px;
   }
 }
 

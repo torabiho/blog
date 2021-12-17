@@ -13,8 +13,9 @@
     filter: saturate(0.5);
 
     @include lg {
+      max-width: 1800px;
       flex-direction: row;
-      margin: $huge 0;
+      margin: $huge auto;
     }
 
     .header {
@@ -33,6 +34,10 @@
       }
       .header__text {
         @include typewriter1;
+
+        &:first-child {
+          margin-bottom: $large;
+        }
       }
     }
   }
