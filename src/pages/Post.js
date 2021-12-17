@@ -27,11 +27,8 @@ const Post = ({ match, i18n }) => {
         ReactGA.event({
           category: "post",
           action: "Visited post",
-          value: {
-            postId: result?.data?._id,
-            postTitle: result?.data?.title,
-            language: i18n.language,
-          },
+          label: i18n.language,
+          value: result.data._id,
         });
       } catch (error) {
         console.log(error);
