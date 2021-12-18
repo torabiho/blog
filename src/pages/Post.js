@@ -53,8 +53,8 @@ const Post = ({ match, i18n }) => {
             <Link className="go-home" to="/"></Link>
           </Trans>
 
-          {post?.postscriptsList?.length > 0 && (
-            <Postscripts postscripts={post.postscriptsList} />
+          {post?.postscripts?.length > 0 && (
+            <Postscripts postscripts={post.postscripts} />
           )}
         </div>
         {post?.comments && (
