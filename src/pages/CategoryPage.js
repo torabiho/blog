@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Gallery from "../components/Gallery";
 import { navItems } from "../constants/constants";
 import "./CategoryPage.scss";
 
-const CategoryPage = ({ location }) => {
+const CategoryPage = () => {
   const { i18n, t } = useTranslation();
-  const { search, state } = location;
+  const { search, state, pathname } = useLocation();
   const [posts, setPosts] = useState(null);
   const title = useMemo(
     () =>
       state?.title ||
-      navItems.find((item) => item.pathname === location.pathname).state.title,
-    [location.pathname, state?.title]
+      navItems.find((item) => item.pathname === pathname).state.title,
+    [pathname, state?.title]
   );
 
   useEffect(() => {

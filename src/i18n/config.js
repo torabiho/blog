@@ -3,8 +3,9 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
 const options = {
-  order: ["querystring", "cookie", "localStorage"],
+  order: ["path", "querystring", "cookie", "localStorage"],
   lookupQuerystring: "lng",
+  lookupFromPathIndex: 0,
   // next-i18next by default searches for the "next-i18next" cookie on server requests
   lookupCookie: "next-i18next",
   lookupLocalStorage: "i18nextLng",
@@ -21,9 +22,6 @@ i18n
       en: {
         translations: require("./locales/en/translations.json"),
       },
-      es: {
-        translations: require("./locales/es/translations.json"),
-      },
       fa: {
         translations: require("./locales/fa/translations.json"),
       },
@@ -38,7 +36,7 @@ i18n
     defaultNS: "translations",
   });
 
-i18n.languages = ["en", "es", "fa"];
+i18n.languages = ["en", "fa"];
 document.documentElement.lang = i18n.language;
 
 export default i18n;

@@ -64,7 +64,8 @@
         margin-right: $xxSmall;
       }
     }
-    p:not(:last-child) {
+    p {
+      display: flex;
       margin-bottom: $xxSmall;
     }
   }

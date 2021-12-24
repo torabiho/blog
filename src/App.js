@@ -18,12 +18,15 @@ const App = () => {
     <div className="app">
       <Nav />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/post/:id" component={Post} />
-        <Route
-          path={["/short-stories", "/library", "/etc", "/movie-club"]}
-          component={CategoryPage}
-        />
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/post/:id">
+          <Post />
+        </Route>
+        <Route path={["/short-stories", "/library", "/etc", "/movie-club"]}>
+          <CategoryPage />
+        </Route>
       </Switch>
     </div>
   );

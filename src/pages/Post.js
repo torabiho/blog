@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ReactGA from "react-ga";
 import axios from "axios";
 import { Trans, withTranslation } from "react-i18next";
@@ -8,13 +8,13 @@ import ContentParser from "../components/ContentParser";
 import Postscripts from "../components/Postscripts";
 import "./Post.scss";
 
-const Post = ({ match, i18n }) => {
+const Post = ({ i18n }) => {
   const [post, setPost] = useState(null);
+  const { id: postId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postId = match.params.id;
         const result = await axios(
           `${process.env.REACT_APP_API_URL}/api/posts/${postId}`,
           {
@@ -35,7 +35,7 @@ const Post = ({ match, i18n }) => {
     };
 
     fetchData();
-  }, [i18n.language, match.params.id]);
+  }, [i18n.language, postId]);
 
   return (
     post && (
@@ -58,7 +58,7 @@ const Post = ({ match, i18n }) => {
           )}
         </div>
         {post?.comments && (
-          <Comments comments={post.comments} postId={match.params.id} />
+          <Comments comments={post.comments} postId={postId} />
         )}
       </div>
     )
