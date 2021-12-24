@@ -18,7 +18,7 @@ const App = () => {
     <div className="app">
       <Nav />
       <Switch>
-        <Route exact path="/">
+        <Route path="/">
           <Home />
         </Route>
         <Route path="/post/:id">
