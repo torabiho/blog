@@ -3,6 +3,7 @@ export const navItems = [
     pathname: "/",
     state: {
       title: "nav-first-page",
+      intro: "intro-first-page",
     },
   },
   {
@@ -10,6 +11,7 @@ export const navItems = [
     search: "?categories=story",
     state: {
       title: "nav-short-stories",
+      intro: "intro-short-stories",
     },
   },
   {
@@ -17,6 +19,7 @@ export const navItems = [
     search: "?categories=library",
     state: {
       title: "nav-library",
+      intro: "intro-library",
     },
   },
   {
@@ -24,6 +27,7 @@ export const navItems = [
     search: "?categories=video",
     state: {
       title: "nav-movie-club",
+      intro: "intro-movie-club",
     },
   },
   {
@@ -31,6 +35,7 @@ export const navItems = [
     search: "?categories=etc",
     state: {
       title: "nav-etc",
+      intro: "intro-etc",
     },
   },
 ];

@@ -35,6 +35,7 @@ const Home = ({ t, i18n }) => {
         </div>
         <img alt="stamp" src={headerBg} className="header__separator" />
       </header>
+      <section className="page__intro">{t("intro-first-page")}</section>
       <Gallery data={posts} />
     </>
   );

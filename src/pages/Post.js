@@ -40,7 +40,7 @@ const Post = ({ i18n }) => {
   return (
     post && (
       <div className="post-container">
-        <div className="post__paper">
+        <article className="post__paper">
           <h1 className="post__title">{post.title}</h1>
           <h2 className="post__subtitle hamburger-trigger">{post.subtitle}</h2>
           <ContentParser
@@ -56,7 +56,7 @@ const Post = ({ i18n }) => {
           {post?.postscripts?.length > 0 && (
             <Postscripts postscripts={post.postscripts} />
           )}
-        </div>
+        </article>
         {post?.comments && (
           <Comments comments={post.comments} postId={postId} />
         )}
