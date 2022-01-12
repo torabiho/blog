@@ -32,10 +32,11 @@ const ParagraphParser = ({ text }) => {
 
 const LineParser = ({ paragraph }) => {
   const lines = paragraph.match(/.+/g);
-
+  const paragraphClass =
+    lines && lines[0] === "***" ? "post__paragraph--center" : "post__paragraph";
   return (
     lines && (
-      <p className="post__paragraph">
+      <p className={paragraphClass}>
         {lines.length > 1 ? (
           lines.map((line, index) => (
             <React.Fragment key={index}>

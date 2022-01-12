@@ -19,11 +19,20 @@
     margin-bottom: $medium;
   }
 
-  .post__paragraph {
+  .post__paragraph--base {
     @include typewriter3;
     margin-bottom: $medium;
+  }
+
+  .post__paragraph {
+    @extend .post__paragraph--base;
     &:lang(fa) {
       text-align: justify;
+    }
+
+    &--center {
+      @extend .post__paragraph--base;
+      text-align: center;
     }
   }
 
