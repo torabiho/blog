@@ -10,7 +10,7 @@ export const GridViewItem = ({ post }) => {
       <Link to={`/post/${post._id}`} className="grid-view__link">
         <figure>
           <CloudinaryImage
-            publicId={`${post._id}/${post.headerImage}`}
+            publicId={`${post._id}/${post.headerImage}.jpg`}
             className="gallery-item__image"
           />
           <figcaption>
@@ -31,7 +31,7 @@ export const ListViewItem = ({ post }) => {
         <div className="list-view__meta">
           <Link to={`/post/${post._id}`}>
             <CloudinaryImage
-              publicId={`${post._id}/${post.headerImage}`}
+              publicId={`${post._id}/${post.headerImage}.jpg`}
               className="gallery-item__image"
             />
           </Link>
