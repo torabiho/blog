@@ -4,6 +4,14 @@ import { useTranslation } from "react-i18next";
 import moment from "jalali-moment";
 import "./GalleryItem.scss";
 
+const parseSnippet = (text) =>
+  text
+    .replace(/(\[.*?\])/g, "")
+    .replace(/<.*?>/g, (mtch) => mtch.slice(1, -1).split("|")[1])
+    .split(" ")
+    .slice(0, 100)
+    .join(" ") + " ... ";
+
 export const GridViewItem = ({ post }) => {
   return (
     <li key={post._id}>
@@ -46,11 +54,7 @@ export const ListViewItem = ({ post }) => {
             {post.title}
           </Link>
           <p className="list-view__paragraph">
-            {post.content
-              .replace(/(<.*?>|\[.*?\])/g, "")
-              .split(" ")
-              .slice(0, 75)
-              .join(" ") + " ... "}
+            {parseSnippet(post.content)}
             <Link to={`/post/${post._id}`}>
               <span>{t("continue")}</span>
             </Link>
