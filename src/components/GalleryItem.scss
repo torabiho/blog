@@ -7,7 +7,7 @@
 
 :root {
   --black: #1a1a1a;
-  --brown: brown;
+  --brown: steelblue;
   --white: #fff;
   --gray: #ccc;
   --darkgreen: #18846c;
@@ -49,6 +49,9 @@
       background: var(--brown);
       color: var(--white);
       height: 100%;
+      div {
+        border-bottom: solid 4px;
+      }
     }
 
     &:hover {

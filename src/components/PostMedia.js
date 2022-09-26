@@ -19,12 +19,10 @@ const PostMedia = ({ media, index, postId, mediaDescription }) => {
     <>
       {images.length === 1 ? (
         <div className="post__single-image__container">
-          <CloudinaryImage publicId={`${postId}/${images[0]}.jpg`} />
-          {mediaDescription && (
-            <p className="post__single-image__caption">
-              {mediaDescription[images[0]]}
-            </p>
-          )}
+          <CloudinaryImage
+            publicId={`${postId}/${images[0]}.jpg`}
+            caption={mediaDescription && mediaDescription[images[0]]}
+          />
         </div>
       ) : (
         images.length > 1 && (

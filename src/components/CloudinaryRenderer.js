@@ -4,12 +4,13 @@ import "./CloudinaryRenderer.scss";
 export const cloudName = "dxmkio4a8";
 export const cloudinaryBaseUrl = `https://res.cloudinary.com/${cloudName}/image/upload/v1/blog/`;
 
-export const CloudinaryImage = ({ publicId, className }) => (
+export const CloudinaryImage = ({ publicId, className, caption }) => (
   <CloudinaryContext cloudName={cloudName}>
     <Image
       publicId={`blog/${publicId}`}
       className={`post__single-image ${className ? className : ""}`}
     />
+    {caption && <p className="post__single-image__caption">{caption}</p>}
   </CloudinaryContext>
 );
 
