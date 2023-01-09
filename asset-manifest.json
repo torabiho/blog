@@ -1,29 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.5b818cb7.chunk.css",
-    "main.js": "/static/js/main.c04f9095.chunk.js",
-    "main.js.map": "/static/js/main.c04f9095.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4c16bcc5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4c16bcc5.js.map",
-    "static/css/2.325f41de.chunk.css": "/static/css/2.325f41de.chunk.css",
-    "static/js/2.dfb7f0af.chunk.js": "/static/js/2.dfb7f0af.chunk.js",
-    "static/js/2.dfb7f0af.chunk.js.map": "/static/js/2.dfb7f0af.chunk.js.map",
-    "static/js/3.f790bfb4.chunk.js": "/static/js/3.f790bfb4.chunk.js",
-    "static/js/3.f790bfb4.chunk.js.map": "/static/js/3.f790bfb4.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.325f41de.chunk.css.map": "/static/css/2.325f41de.chunk.css.map",
-    "static/css/main.5b818cb7.chunk.css.map": "/static/css/main.5b818cb7.chunk.css.map",
-    "static/js/2.dfb7f0af.chunk.js.LICENSE.txt": "/static/js/2.dfb7f0af.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/static/media/Far_MashinTahrir.6c2a98ce.ttf",
-    "static/media/headerBg.3bb3e112.png": "/static/media/headerBg.3bb3e112.png",
-    "static/media/App.scss": "/static/media/main-background.7ed2b60d.jpeg",
-    "static/media/stamp.5abcd315.png": "/static/media/stamp.5abcd315.png"
+    "main.css": "https://hosseintorabi.herokuapp.com/static/css/main.93e1cb85.css",
+    "main.js": "https://hosseintorabi.herokuapp.com/static/js/main.af2978b3.js",
+    "static/js/787.a10bb3b7.chunk.js": "https://hosseintorabi.herokuapp.com/static/js/787.a10bb3b7.chunk.js",
+    "static/media/stamp.png": "https://hosseintorabi.herokuapp.com/static/media/stamp.5abcd3151320fb94043f.png",
+    "static/media/main-background.jpeg": "https://hosseintorabi.herokuapp.com/static/media/main-background.7ed2b60d8179db95e505.jpeg",
+    "static/media/DigiـHilan.ttf": "https://hosseintorabi.herokuapp.com/static/media/DigiـHilan.0cf1c3f76a78dd1733fb.ttf",
+    "static/media/headerBg.png": "https://hosseintorabi.herokuapp.com/static/media/headerBg.3bb3e112d0fc2f540913.png",
+    "static/media/Far_MashinTahrir.ttf": "https://hosseintorabi.herokuapp.com/static/media/Far_MashinTahrir.6c2a98ce96cf577622c8.ttf",
+    "index.html": "https://hosseintorabi.herokuapp.com/index.html",
+    "main.93e1cb85.css.map": "https://hosseintorabi.herokuapp.com/static/css/main.93e1cb85.css.map",
+    "main.af2978b3.js.map": "https://hosseintorabi.herokuapp.com/static/js/main.af2978b3.js.map",
+    "787.a10bb3b7.chunk.js.map": "https://hosseintorabi.herokuapp.com/static/js/787.a10bb3b7.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.4c16bcc5.js",
-    "static/css/2.325f41de.chunk.css",
-    "static/js/2.dfb7f0af.chunk.js",
-    "static/css/main.5b818cb7.chunk.css",
-    "static/js/main.c04f9095.chunk.js"
+    "static/css/main.93e1cb85.css",
+    "static/js/main.af2978b3.js"
   ]
 }
