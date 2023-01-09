@@ -26,6 +26,9 @@ const CloudinaryImageSlides = ({ images, captions, postId, index }) => {
       mediaAssets: images.map((element) => ({
         publicId: `blog/${postId}/${element}`,
       })),
+      transformation: {
+        background: "transparent"
+      }
     });
 
     if (!cloudnaryGalleryRef.current && typeof window !== "undefined") {
