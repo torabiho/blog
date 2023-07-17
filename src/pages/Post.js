@@ -24,6 +24,21 @@ const Post = ({ i18n }) => {
           }
         );
         setPost(result.data);
+
+        const {data: updatedDoc} = await axios.get(
+          `${process.env.REACT_APP_DOCS_API_URL}/${result?.data?.link}/export`,
+          {
+            params: {
+              mimeType: 'text/plain',
+              key: process.env.REACT_APP_DOCS_API_KEY,
+            },
+          }
+        );
+
+        if(updatedDoc !== undefined && updatedDoc !== result.data.content){
+          setPost(prev => ({ ...prev, content:updatedDoc}));         
+        }
+
         ReactGA.event({
           category: "post",
           action: "Visited post",
