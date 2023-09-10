@@ -23,8 +23,12 @@ const ContentParser = ({ content, postId, mediaDescription }) => {
 };
 
 const ParagraphParser = ({ text }) => {
-  const paragraphs = text.split(/\n\n/);
-
+  /**
+   * Windows uses \r\n (carriage return followed by newline).
+   * Unix-based systems like Linux and macOS use \n (newline).
+   * Older Mac systems used \r (carriage return).
+   */
+  const paragraphs = text.split(/\r\n/);
   return paragraphs.map((paragraph, index) => (
     <LineParser key={index} paragraph={paragraph} />
   ));
