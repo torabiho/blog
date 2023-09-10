@@ -125,13 +125,19 @@
     margin-bottom: $xLarge;
     color: #d94f5c;
     border: solid 2px #d94f5c;
-    padding: $xSmall;
-    transition: all 0.5s;
+    padding: $xxSmall $medium;
+    transition: background-color 0.5s;
     text-decoration: none;
+
+    mask-image: url("../images/grunge.png");
+    mask-size: 944px 604px;
+    mask-position: 0rem 5rem;
 
     &:hover {
       background-color: #d94f5c;
       color: white;
+      mask-border-source: url("../images/grunge.png");
+      mask-image: none;
     }
   }
 }
