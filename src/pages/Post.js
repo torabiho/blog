@@ -37,6 +37,7 @@ const Post = ({ i18n }) => {
 
         if (updatedDoc !== undefined && updatedDoc !== result.data.content) {
           setPost((prev) => ({ ...prev, content: updatedDoc }));
+          updatePost(updatedDoc);
         }
 
         ReactGA.event({
@@ -50,7 +51,26 @@ const Post = ({ i18n }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i18n.language, postId]);
+
+  const updatePost = async (updatedContent) => {
+    try {
+      await axios.patch(
+        `${process.env.REACT_APP_API_URL}/api/posts/${postId}`,
+        {
+          content: updatedContent,
+        },
+        {
+          headers: {
+            "Accept-Language": i18n.language,
+          },
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     post && (
