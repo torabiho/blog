@@ -4,7 +4,7 @@ import "./CloudinaryImageSlides.scss";
 
 const CloudinaryImageSlides = ({ images, captions, postId, index }) => {
   const cloudnaryGalleryRef = useRef(null);
-  const [imageCaption, setImageCaption] = useState(captions[images[0]]);
+  const [imageCaption, setImageCaption] = useState(captions?.[images[0]]);
 
   const setCaption = useCallback(
     (label) => {
@@ -27,8 +27,8 @@ const CloudinaryImageSlides = ({ images, captions, postId, index }) => {
         publicId: `blog/${postId}/${element}`,
       })),
       transformation: {
-        background: "transparent"
-      }
+        background: "transparent",
+      },
     });
 
     if (!cloudnaryGalleryRef.current && typeof window !== "undefined") {
@@ -48,7 +48,7 @@ const CloudinaryImageSlides = ({ images, captions, postId, index }) => {
 
   return (
     <div id={`media${index}`} className="post__media-gallery">
-      <p className="post__media-caption">{imageCaption}</p>
+      {imageCaption && <p className="post__media-caption">{imageCaption}</p>}
     </div>
   );
 };
