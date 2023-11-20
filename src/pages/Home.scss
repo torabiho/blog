@@ -39,6 +39,13 @@
           margin-bottom: $large;
         }
       }
+      .subheader__text {
+        @include typewriter3;
+
+        &:first-child {
+          margin-bottom: $large;
+        }
+      }
     }
   }
 

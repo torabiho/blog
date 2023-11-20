@@ -29,13 +29,13 @@ const Home = ({ t, i18n }) => {
         <div className="header__content">
           <div className="header">
             <p className="header__text">{t("header-main-title")}</p>
-            <p className="header__text">{t("header-sub-title")}</p>
+            <p className="subheader__text">{t("header-sub-title")}</p>
           </div>
           <img alt="stamp" src={stamp} width="360px" />
         </div>
         <img alt="stamp" src={headerBg} className="header__separator" />
       </header>
-      <section className="page__intro">{t("intro-first-page")}</section>
+      {/* <section className="page__intro">{t("intro-first-page")}</section> */}
       <Gallery data={posts} />
     </>
   );

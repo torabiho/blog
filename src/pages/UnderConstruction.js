@@ -7,7 +7,6 @@ const UnderConstruction = () => {
   return (
     <div className="construction__wrapper">
       <h2>{t("under-construction-header")}</h2>
-      <h3>{t("under-construction-soon")}</h3>
     </div>
   );
 };
